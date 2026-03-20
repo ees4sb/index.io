@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuidad Pedagógica</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff8e1; /* amarillo suave */
+            text-align: center;
+        }
+
+        header {
+            background-color: #e67e22; /* naranja */
+            padding: 20px;
+            color: white;
+        }
+
+        header img {
+            width: 120px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            margin: 10px 0 0 0;
+        }
+
+        .contenedor {
+            padding: 20px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .curso {
+            background-color: #27ae60; /* verde */
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .curso:hover {
+            background-color: #2ecc71;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e67e22;
+            color: white;
+        }
+
+        /* 📱 RESPONSIVE */
+        @media (max-width: 600px) {
+            .menu {
+                grid-template-columns: 1fr;
+            }
+
+            header img {
+                width: 90px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+    <img src="1.jpg" alt="Logo Escuela">
+    <h1>E.E.S. N° 4</h1>
+    <p>Continuidad Pedagógica</p>
+</header>
+
+<div class="contenedor">
+    <h2>Seleccionar curso</h2>
+
+    <div class="menu">
+        <a class="curso" href="1ro.html">1° Año</a>
+        <a class="curso" href="2do.html">2° Año</a>
+        <a class="curso" href="3ro.html">3° Año</a>
+        <a class="curso" href="4to.html">4° Año</a>
+        <a class="curso" href="5to.html">5° Año</a>
+        <a class="curso" href="6to.html">6° Año</a>
+    </div>
+</div>
+
+<footer>
+    © Escuela Secundaria - San Bernardo
+</footer>
+
+</body>
+</html>
