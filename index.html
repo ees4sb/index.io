@@ -4,36 +4,116 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Escuela Secundaria</title>
+
   <style>
-    body{margin:0;font-family:Arial,sans-serif;background:#f7f7f7;color:#333}
-    header{background:#f57c00;color:white;text-align:center;padding:35px 15px}
-    header h1{margin:0;font-size:38px}
-    header p{margin:8px 0 0;font-size:20px}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff8e1;
+      color: #333;
+    }
 
-    nav{background:#333;display:flex;justify-content:center;flex-wrap:wrap}
-    nav a{color:white;text-decoration:none;padding:15px 18px;font-weight:bold}
-    nav a:hover{background:#f57c00}
+    header {
+      background: linear-gradient(135deg, #f57c00, #ffd54f);
+      color: white;
+      text-align: center;
+      padding: 35px 15px;
+      border-bottom: 8px solid #43a047;
+    }
 
-    .hero{background:linear-gradient(135deg,#ff9800,#ffd54f);padding:60px 20px;text-align:center;color:white}
-    .hero h2{font-size:36px;margin:0}
-    .hero p{font-size:20px}
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
 
-    main{max-width:1100px;margin:auto;padding:30px 15px}
-    section{background:white;margin-bottom:25px;padding:25px;border-radius:12px;box-shadow:0 3px 10px #0002}
-    h2{color:#e65100;border-left:8px solid #43a047;padding-left:12px}
+    header p {
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
-    .card{background:#fff3e0;border:2px solid #ffcc80;padding:20px;border-radius:12px;text-align:center}
-    .card a{display:block;background:#f57c00;color:white;text-decoration:none;padding:12px;border-radius:8px;font-weight:bold}
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 25px 15px;
+    }
 
-    details{margin:12px 0;border:2px solid #ffcc80;border-radius:10px;overflow:hidden}
-    summary{background:#f57c00;color:white;padding:15px;font-size:20px;font-weight:bold;cursor:pointer}
-    .cursos{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;padding:15px}
-    .curso{background:#ff9800;color:white;text-decoration:none;padding:15px;border-radius:10px;text-align:center;font-weight:bold;border-bottom:5px solid #43a047}
+    details {
+      margin-bottom: 15px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #ffcc80;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
 
-    footer{background:#333;color:white;text-align:center;padding:25px}
+    summary {
+      background: #f57c00;
+      color: white;
+      padding: 18px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    summary:hover {
+      background: #43a047;
+    }
+
+    .contenido {
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .contenido a {
+      color: #e65100;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .cursos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      padding: 15px;
+    }
+
+    .curso {
+      background: #ff9800;
+      color: white;
+      text-decoration: none;
+      padding: 16px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: bold;
+      border-bottom: 5px solid #43a047;
+      transition: 0.2s;
+    }
+
+    .curso:hover {
+      background: #43a047;
+      transform: scale(1.03);
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 22px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 28px;
+      }
+
+      summary {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -41,125 +121,136 @@
   <p>Partido de La Costa</p>
 </header>
 
-<nav>
-  <a href="#institucional">Institucional</a>
-  <a href="#docentes">Docentes</a>
-  <a href="#estudiantes">Estudiantes</a>
-  <a href="#horarios">Horarios</a>
-  <a href="#familia">Familia</a>
-  <a href="#contacto">Contacto</a>
-</nav>
-
-<div class="hero">
-  <h2>Bienvenidos a nuestra escuela</h2>
-  <p>Información institucional, novedades y horarios escolares 2026</p>
-</div>
-
 <main>
 
-<section id="institucional">
-  <h2>Institucional</h2>
-  <div class="grid">
-    <div class="card">Datos institucionales</div>
-    <div class="card">Equipo de conducción</div>
-    <div class="card">Historia de la escuela</div>
-    <div class="card">Proyecto institucional</div>
-  </div>
-</section>
-
-<section id="docentes">
-  <h2>Docentes</h2>
-  <p>Espacio para información docente, departamentos, comunicados y materiales.</p>
-</section>
-
-<section id="estudiantes">
-  <h2>Estudiantes</h2>
-  <div class="grid">
-    <div class="card">Inscripción 1° año</div>
-    <div class="card">Matriculación</div>
-    <div class="card">Comisiones evaluadoras</div>
-    <div class="card">Orientaciones</div>
-  </div>
-</section>
-
-<section id="horarios">
-  <h2>Horarios Escolares 2026</h2>
-
-  <details open>
-    <summary>1° Año</summary>
-    <div class="cursos">
-      <a class="curso" href="horarios/1_a.pdf" target="_blank">1° A</a>
-      <a class="curso" href="horarios/1_b.pdf" target="_blank">1° B</a>
-      <a class="curso" href="horarios/1_c.pdf" target="_blank">1° C</a>
-      <a class="curso" href="horarios/1_d.pdf" target="_blank">1° D</a>
+  <details>
+    <summary>🏫 Institucional</summary>
+    <div class="contenido">
+      <p>Historia de la institución.</p>
+      <p>Proyecto institucional.</p>
+      <p>Equipo directivo.</p>
+      <p>Acuerdos institucionales de convivencia.</p>
     </div>
   </details>
 
   <details>
-    <summary>2° Año</summary>
-    <div class="cursos">
-      <a class="curso" href="horarios/2_a.pdf" target="_blank">2° A</a>
-      <a class="curso" href="horarios/2_b.pdf" target="_blank">2° B</a>
-      <a class="curso" href="horarios/2_c.pdf" target="_blank">2° C</a>
-      <a class="curso" href="horarios/2_d.pdf" target="_blank">2° D</a>
+    <summary>👨‍🏫 Docentes</summary>
+    <div class="contenido">
+      <p><a href="#">Calendario docente</a></p>
+      <p><a href="#">Planificaciones</a></p>
+      <p><a href="#">Material de trabajo</a></p>
+      <p><a href="#">Comunicados institucionales</a></p>
     </div>
   </details>
 
   <details>
-    <summary>3° Año</summary>
-    <div class="cursos">
-      <a class="curso" href="horarios/3_a.pdf" target="_blank">3° A</a>
-      <a class="curso" href="horarios/3_b.pdf" target="_blank">3° B</a>
-      <a class="curso" href="horarios/3_c.pdf" target="_blank">3° C</a>
-      <a class="curso" href="horarios/3_d.pdf" target="_blank">3° D</a>
+    <summary>🎓 Estudiantes</summary>
+    <div class="contenido">
+      <p><a href="#">Inscripciones</a></p>
+      <p><a href="#">Mesas de examen</a></p>
+      <p><a href="#">Centro de estudiantes</a></p>
+      <p><a href="#">Orientaciones</a></p>
     </div>
   </details>
 
   <details>
-    <summary>4° Año</summary>
-    <div class="cursos">
-      <a class="curso" href="horarios/4_1_comunicaciones.pdf" target="_blank">4° 1° Comunicaciones</a>
-      <a class="curso" href="horarios/4_2_comunicaciones.pdf" target="_blank">4° 2° Comunicaciones</a>
-      <a class="curso" href="horarios/4_3_economia.pdf" target="_blank">4° 3° Economía</a>
-      <a class="curso" href="horarios/4_4_cs_naturales.pdf" target="_blank">4° 4° Cs. Naturales</a>
-      <a class="curso" href="horarios/4_5_cs_sociales.pdf" target="_blank">4° 5° Cs. Sociales</a>
+    <summary>📚 Horarios Escolares 2026</summary>
+
+    <details>
+      <summary>1° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/1_a.pdf" target="_blank">1° A</a>
+        <a class="curso" href="./horarios/1_b.pdf" target="_blank">1° B</a>
+        <a class="curso" href="./horarios/1_c.pdf" target="_blank">1° C</a>
+        <a class="curso" href="./horarios/1_d.pdf" target="_blank">1° D</a>
+      </div>
+    </details>
+
+    <details>
+      <summary>2° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/2_a.pdf" target="_blank">2° A</a>
+        <a class="curso" href="./horarios/2_b.pdf" target="_blank">2° B</a>
+        <a class="curso" href="./horarios/2_c.pdf" target="_blank">2° C</a>
+        <a class="curso" href="./horarios/2_d.pdf" target="_blank">2° D</a>
+      </div>
+    </details>
+
+    <details>
+      <summary>3° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/3_a.pdf" target="_blank">3° A</a>
+        <a class="curso" href="./horarios/3_b.pdf" target="_blank">3° B</a>
+        <a class="curso" href="./horarios/3_c.pdf" target="_blank">3° C</a>
+        <a class="curso" href="./horarios/3_d.pdf" target="_blank">3° D</a>
+      </div>
+    </details>
+
+    <details>
+      <summary>4° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/4_1_comunicaciones.pdf" target="_blank">4° 1° Comunicaciones</a>
+        <a class="curso" href="./horarios/4_2_comunicaciones.pdf" target="_blank">4° 2° Comunicaciones</a>
+        <a class="curso" href="./horarios/4_3_economia.pdf" target="_blank">4° 3° Economía</a>
+        <a class="curso" href="./horarios/4_4_cs_naturales.pdf" target="_blank">4° 4° Cs. Naturales</a>
+        <a class="curso" href="./horarios/4_5_cs_sociales.pdf" target="_blank">4° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+    <details>
+      <summary>5° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/5_1_comunicaciones.pdf" target="_blank">5° 1° Comunicaciones</a>
+        <a class="curso" href="./horarios/5_2_comunicaciones.pdf" target="_blank">5° 2° Comunicaciones</a>
+        <a class="curso" href="./horarios/5_3_economia.pdf" target="_blank">5° 3° Economía</a>
+        <a class="curso" href="./horarios/5_4_cs_naturales.pdf" target="_blank">5° 4° Cs. Naturales</a>
+        <a class="curso" href="./horarios/5_5_cs_sociales.pdf" target="_blank">5° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+    <details>
+      <summary>6° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/6_1_comunicaciones.pdf" target="_blank">6° 1° Comunicaciones</a>
+        <a class="curso" href="./horarios/6_2_comunicaciones.pdf" target="_blank">6° 2° Comunicaciones</a>
+        <a class="curso" href="./horarios/6_3_economia.pdf" target="_blank">6° 3° Economía</a>
+        <a class="curso" href="./horarios/6_4_cs_naturales.pdf" target="_blank">6° 4° Cs. Naturales</a>
+        <a class="curso" href="./horarios/6_5_cs_sociales.pdf" target="_blank">6° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+  </details>
+
+  <details>
+    <summary>📻 Radio Escolar</summary>
+    <div class="contenido">
+      <p>Espacio de producciones radiales, proyectos y actividades de los estudiantes.</p>
     </div>
   </details>
 
   <details>
-    <summary>5° Año</summary>
-    <div class="cursos">
-      <a class="curso" href="horarios/5_1_comunicaciones.pdf" target="_blank">5° 1° Comunicaciones</a>
-      <a class="curso" href="horarios/5_2_comunicaciones.pdf" target="_blank">5° 2° Comunicaciones</a>
-      <a class="curso" href="horarios/5_3_economia.pdf" target="_blank">5° 3° Economía</a>
-      <a class="curso" href="horarios/5_4_cs_naturales.pdf" target="_blank">5° 4° Cs. Naturales</a>
-      <a class="curso" href="horarios/5_5_cs_sociales.pdf" target="_blank">5° 5° Cs. Sociales</a>
+    <summary>🤝 Cooperadora</summary>
+    <div class="contenido">
+      <p>Información de la asociación cooperadora y actividades de colaboración con la escuela.</p>
     </div>
   </details>
 
   <details>
-    <summary>6° Año</summary>
-    <div class="cursos">
-      <a class="curso" href="horarios/6_1_comunicaciones.pdf" target="_blank">6° 1° Comunicaciones</a>
-      <a class="curso" href="horarios/6_2_comunicaciones.pdf" target="_blank">6° 2° Comunicaciones</a>
-      <a class="curso" href="horarios/6_3_economia.pdf" target="_blank">6° 3° Economía</a>
-      <a class="curso" href="horarios/6_4_cs_naturales.pdf" target="_blank">6° 4° Cs. Naturales</a>
-      <a class="curso" href="horarios/6_5_cs_sociales.pdf" target="_blank">6° 5° Cs. Sociales</a>
+    <summary>👨‍👩‍👧‍👦 Familias</summary>
+    <div class="contenido">
+      <p>Comunicados importantes para madres, padres y tutores.</p>
+      <p>Reuniones, avisos y documentación escolar.</p>
     </div>
   </details>
-</section>
 
-<section id="familia">
-  <h2>Familia</h2>
-  <p>Comunicados, reuniones, información importante y novedades para las familias.</p>
-</section>
-
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p><b>Dirección:</b> completar dirección de la escuela</p>
-  <p><b>Email:</b> completar correo institucional</p>
-  <p><b>Teléfono:</b> completar teléfono</p>
-</section>
+  <details>
+    <summary>📞 Contacto</summary>
+    <div class="contenido">
+      <p><strong>Dirección:</strong> Completar dirección de la escuela</p>
+      <p><strong>Teléfono:</strong> Completar teléfono</p>
+      <p><strong>Email:</strong> completar@email.com</p>
+    </div>
+  </details>
 
 </main>
 
