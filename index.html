@@ -1,102 +1,185 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Continuidad Pedagógica</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horarios Escolares 2026</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #fff8e1; /* amarillo suave */
-            text-align: center;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff8e1;
+      color: #333;
+    }
 
-        header {
-            background-color: #e67e22; /* naranja */
-            padding: 20px;
-            color: white;
-        }
+    header {
+      background: linear-gradient(135deg, #f57c00, #ffd54f);
+      color: white;
+      text-align: center;
+      padding: 35px 15px;
+      border-bottom: 8px solid #43a047;
+    }
 
-        header img {
-            width: 120px;
-            border-radius: 10px;
-        }
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
 
-        h1 {
-            margin: 10px 0 0 0;
-        }
+    header p {
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-        .contenedor {
-            padding: 20px;
-        }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 15px;
+    }
 
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
+    details {
+      background: white;
+      margin-bottom: 18px;
+      border-radius: 15px;
+      border: 2px solid #ffcc80;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
 
-        .curso {
-            background-color: #27ae60; /* verde */
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 18px;
-            transition: 0.3s;
-        }
+    summary {
+      background: #f57c00;
+      color: white;
+      padding: 18px;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-        .curso:hover {
-            background-color: #2ecc71;
-        }
+    .cursos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
 
-        footer {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #e67e22;
-            color: white;
-        }
+    .curso {
+      background: #ff9800;
+      color: white;
+      text-decoration: none;
+      padding: 18px;
+      text-align: center;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: bold;
+      border-bottom: 6px solid #43a047;
+      transition: 0.2s;
+    }
 
-        /* 📱 RESPONSIVE */
-        @media (max-width: 600px) {
-            .menu {
-                grid-template-columns: 1fr;
-            }
+    .curso:hover {
+      background: #43a047;
+      transform: scale(1.03);
+    }
 
-            header img {
-                width: 90px;
-            }
-        }
-    </style>
+    footer {
+      text-align: center;
+      background: #333;
+      color: white;
+      padding: 20px;
+      margin-top: 30px;
+    }
 
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 28px;
+      }
+
+      summary {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-    <img src="1.jpg" alt="Logo Escuela">
-    <h1>E.E.S. N° 4</h1>
-    <p>Continuidad Pedagógica</p>
-</header>
+  <header>
+    <h1>HORARIOS ESCOLARES 2026</h1>
+    <p>Secundaria - Acceso por curso</p>
+  </header>
 
-<div class="contenedor">
-    <h2>Seleccionar curso</h2>
+  <main>
 
-    <div class="menu">
-        <a class="curso" href="1ro.html">1° Año</a>
-        <a class="curso" href="2do.html">2° Año</a>
-        <a class="curso" href="3ro.html">3° Año</a>
-        <a class="curso" href="4to.html">4° Año</a>
-        <a class="curso" href="5to.html">5° Año</a>
-        <a class="curso" href="6to.html">6° Año</a>
-    </div>
-</div>
+    <details open>
+      <summary>1° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="horarios/1a.pdf" target="_blank">1° A</a>
+        <a class="curso" href="horarios/1b.pdf" target="_blank">1° B</a>
+        <a class="curso" href="horarios/1c.pdf" target="_blank">1° C</a>
+        <a class="curso" href="horarios/1d.pdf" target="_blank">1° D</a>
+      </div>
+    </details>
 
-<footer>
-    © Escuela Secundaria N°4 - San Bernardo
-</footer>
+    <details>
+      <summary>2° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="horarios/2a.pdf" target="_blank">2° A</a>
+        <a class="curso" href="horarios/2b.pdf" target="_blank">2° B</a>
+        <a class="curso" href="horarios/2c.pdf" target="_blank">2° C</a>
+        <a class="curso" href="horarios/2d.pdf" target="_blank">2° D</a>
+      </div>
+    </details>
+
+    <details>
+      <summary>3° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="horarios/3a.pdf" target="_blank">3° A</a>
+        <a class="curso" href="horarios/3b.pdf" target="_blank">3° B</a>
+        <a class="curso" href="horarios/3c.pdf" target="_blank">3° C</a>
+        <a class="curso" href="horarios/3d.pdf" target="_blank">3° D</a>
+      </div>
+    </details>
+
+    <details>
+      <summary>4° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="horarios/4_1_comunicaciones.pdf" target="_blank">4° 1° Comunicaciones</a>
+        <a class="curso" href="horarios/4_2_comunicaciones.pdf" target="_blank">4° 2° Comunicaciones</a>
+        <a class="curso" href="horarios/4_3_economia.pdf" target="_blank">4° 3° Economía</a>
+        <a class="curso" href="horarios/4_4_cs_naturales.pdf" target="_blank">4° 4° Cs. Naturales</a>
+        <a class="curso" href="horarios/4_5_cs_sociales.pdf" target="_blank">4° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+    <details>
+      <summary>5° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="horarios/5_1_comunicaciones.pdf" target="_blank">5° 1° Comunicaciones</a>
+        <a class="curso" href="horarios/5_2_comunicaciones.pdf" target="_blank">5° 2° Comunicaciones</a>
+        <a class="curso" href="horarios/5_3_economia.pdf" target="_blank">5° 3° Economía</a>
+        <a class="curso" href="horarios/5_4_cs_naturales.pdf" target="_blank">5° 4° Cs. Naturales</a>
+        <a class="curso" href="horarios/5_5_cs_sociales.pdf" target="_blank">5° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+    <details>
+      <summary>6° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="horarios/6_1_comunicaciones.pdf" target="_blank">6° 1° Comunicaciones</a>
+        <a class="curso" href="horarios/6_2_comunicaciones.pdf" target="_blank">6° 2° Comunicaciones</a>
+        <a class="curso" href="horarios/6_3_economia.pdf" target="_blank">6° 3° Economía</a>
+        <a class="curso" href="horarios/6_4_cs_naturales.pdf" target="_blank">6° 4° Cs. Naturales</a>
+        <a class="curso" href="horarios/6_5_cs_sociales.pdf" target="_blank">6° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+  </main>
+
+  <footer>
+    Ciclo Lectivo 2026 - Horarios escolares
+  </footer>
 
 </body>
 </html>
+```
+
