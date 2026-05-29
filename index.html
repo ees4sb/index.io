@@ -1,241 +1,456 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>E.E.S. N° 4 - Francisco P. Moreno</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E.E.S. N° 4 - Francisco P. Moreno</title>
 
-<style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#fff8e1;
-color:#333;
-}
+  <style>
+    *{
+      box-sizing:border-box;
+    }
 
-header{
-background:linear-gradient(135deg,#f57c00,#ffb300);
-color:white;
-padding:30px;
-border-bottom:8px solid #2e7d32;
-}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(90deg,#fff7df,#ffffff,#fff7df);
+      color:#222;
+    }
 
-.header-contenido{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-gap:30px;
-}
+    header{
+      min-height:260px;
+      background:linear-gradient(135deg,#e65100,#ff7a00,#ffb300);
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+      border-bottom:8px solid #2e7d32;
+      padding:35px 20px;
+    }
 
-.logo{
-width:140px;
-height:auto;
-border-radius:50%;
-box-shadow:0 5px 15px rgba(0,0,0,.3);
-flex-shrink:0;
-}
+    header::before{
+      content:"";
+      position:absolute;
+      left:35px;
+      top:50%;
+      transform:translateY(-50%);
+      width:300px;
+      height:300px;
+      background:url("1.jpg") center center no-repeat;
+      background-size:contain;
+      opacity:.16;
+      filter:sepia(1) saturate(1.4);
+    }
 
-.titulo{
-flex:1;
-}
+    .titulo-header{
+      position:relative;
+      z-index:2;
+      text-shadow:3px 4px 8px rgba(0,0,0,.28);
+    }
 
-.titulo h1{
-margin:0;
-font-size:56px;
-font-weight:bold;
-}
+    .titulo-header h1{
+      margin:0;
+      font-size:clamp(52px,8vw,92px);
+      letter-spacing:8px;
+      font-weight:900;
+    }
 
-.titulo p{
-margin:5px 0;
-font-size:24px;
-font-weight:bold;
-}
+    .titulo-header h2{
+      margin:10px 0 0;
+      font-size:clamp(24px,4vw,40px);
+      font-weight:900;
+      letter-spacing:2px;
+    }
 
-main{
-max-width:1000px;
-margin:auto;
-padding:20px;
-}
+    .titulo-header p{
+      margin:12px 0 0;
+      font-size:clamp(17px,2.6vw,26px);
+      font-weight:900;
+    }
 
-details{
-background:white;
-border-radius:12px;
-margin-bottom:15px;
-border:2px solid #ffcc80;
-overflow:hidden;
-box-shadow:0 4px 12px rgba(0,0,0,.1);
-}
+    main{
+      max-width:1060px;
+      margin:auto;
+      padding:30px 16px;
+    }
 
-summary{
-background:#f57c00;
-color:white;
-padding:18px;
-font-weight:bold;
-cursor:pointer;
-}
+    details{
+      background:white;
+      margin-bottom:14px;
+      border-radius:8px;
+      overflow:hidden;
+      border:1px solid #ddd;
+      box-shadow:0 4px 14px rgba(0,0,0,.15);
+    }
 
-details.horarios > summary{
-background:#1565c0;
-}
+    summary{
+      list-style:none;
+      background:linear-gradient(90deg,#f45100,#ff6d00);
+      color:white;
+      padding:15px 20px;
+      cursor:pointer;
+      font-size:23px;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
 
-details.anio > summary{
-background:#1976d2;
-}
+    summary::-webkit-details-marker{
+      display:none;
+    }
 
-.contenido{
-padding:20px;
-}
+    summary::after{
+      content:"⌄";
+      font-size:26px;
+      font-weight:bold;
+      transition:.2s;
+    }
 
-.cursos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:10px;
-padding:15px;
-}
+    details[open] > summary::after{
+      transform:rotate(180deg);
+    }
 
-.curso{
-background:#43a047;
-color:white;
-text-decoration:none;
-padding:15px;
-border-radius:10px;
-text-align:center;
-font-weight:bold;
-}
+    .contenido{
+      padding:20px 28px;
+      line-height:1.7;
+      font-size:17px;
+    }
 
-.instagram-btn{
-display:inline-block;
-background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
-color:white;
-text-decoration:none;
-padding:15px 25px;
-border-radius:12px;
-font-weight:bold;
-}
+    .contenido ul{
+      margin:0;
+      padding-left:20px;
+    }
 
-.instagram-float{
-position:fixed;
-bottom:20px;
-right:20px;
-background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
-color:white;
-text-decoration:none;
-padding:15px 20px;
-border-radius:50px;
-font-weight:bold;
-}
+    .contenido li{
+      margin:9px 0;
+    }
 
-footer{
-background:#222;
-color:white;
-text-align:center;
-padding:20px;
-}
+    .contenido li::marker{
+      color:#ff6d00;
+    }
 
-@media(max-width:768px){
-.header-contenido{
-flex-direction:column;
-text-align:center;
-}
+    .horarios > summary{
+      background:linear-gradient(90deg,#1565c0,#0d47a1);
+    }
 
-.logo{
-width:120px;
-}
+    .anio{
+      margin:12px;
+      border:1px solid #90caf9;
+      box-shadow:none;
+      border-radius:7px;
+    }
 
-.titulo h1{
-font-size:36px;
-}
+    .anio > summary{
+      background:linear-gradient(90deg,#1565c0,#1e73dd);
+      padding:10px 14px;
+      font-size:18px;
+    }
 
-.titulo p{
-font-size:18px;
-}
-}
-</style>
+    .anio > summary::after{
+      content:"›";
+      font-size:20px;
+    }
+
+    .anio[open] > summary::after{
+      transform:rotate(90deg);
+    }
+
+    .cursos{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:18px;
+      padding:16px 28px;
+      background:#fff;
+    }
+
+    .curso{
+      display:block;
+      background:linear-gradient(180deg,#4f963f,#2e7d32);
+      color:white;
+      text-align:center;
+      text-decoration:none;
+      padding:11px 12px;
+      border-radius:6px;
+      font-weight:900;
+      box-shadow:0 3px 7px rgba(0,0,0,.25);
+      transition:.2s;
+    }
+
+    .curso:hover{
+      transform:scale(1.04);
+      background:linear-gradient(180deg,#66bb6a,#1b5e20);
+    }
+
+    .instagram-area{
+      text-align:center;
+    }
+
+    .instagram-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
+      color:white !important;
+      text-decoration:none;
+      padding:16px 42px;
+      border-radius:8px;
+      font-weight:900;
+      font-size:20px;
+      margin-top:10px;
+      box-shadow:0 5px 15px rgba(0,0,0,.25);
+      transition:.2s;
+    }
+
+    .instagram-btn:hover{
+      transform:scale(1.05);
+    }
+
+    footer{
+      background:linear-gradient(90deg,#111,#222,#111);
+      color:white;
+      text-align:center;
+      padding:28px 20px;
+      font-size:16px;
+      line-height:1.8;
+    }
+
+    .instagram-float{
+      position:fixed;
+      bottom:28px;
+      right:28px;
+      background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
+      color:white;
+      text-decoration:none;
+      padding:17px 28px;
+      border-radius:50px;
+      font-weight:900;
+      font-size:18px;
+      box-shadow:0 5px 18px rgba(0,0,0,.35);
+      z-index:999;
+    }
+
+    @media(max-width:768px){
+      header{
+        min-height:230px;
+        padding:30px 12px;
+      }
+
+      header::before{
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        width:230px;
+        height:230px;
+        opacity:.13;
+      }
+
+      .titulo-header h1{
+        font-size:48px;
+        letter-spacing:4px;
+      }
+
+      .titulo-header h2{
+        font-size:24px;
+      }
+
+      .titulo-header p{
+        font-size:16px;
+      }
+
+      main{
+        padding:20px 10px;
+      }
+
+      summary{
+        font-size:19px;
+        padding:14px 15px;
+      }
+
+      .contenido{
+        padding:16px;
+        font-size:15px;
+      }
+
+      .cursos{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+        padding:12px;
+      }
+
+      .curso{
+        font-size:14px;
+        padding:11px 6px;
+      }
+
+      .instagram-float{
+        right:14px;
+        bottom:14px;
+        padding:13px 18px;
+        font-size:15px;
+      }
+    }
+
+    @media(max-width:420px){
+      .cursos{
+        grid-template-columns:1fr;
+      }
+
+      .titulo-header h1{
+        font-size:38px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<div class="header-contenido">
-
-<img src="1.jpg" alt="Logo EES4" class="logo">
-
-<div class="titulo">
-<h1>E.E.S. N° 4</h1>
-<p>Francisco P. Moreno</p>
-<p>San Bernardo - Partido de La Costa</p>
-</div>
-
-</div>
+  <div class="titulo-header">
+    <h1>E.E.S. N° 4</h1>
+    <h2>FRANCISCO P. MORENO</h2>
+    <p>SAN BERNARDO - PARTIDO DE LA COSTA</p>
+  </div>
 </header>
 
 <main>
 
-<details>
-<summary>🏫 Institucional</summary>
-<div class="contenido">
-<p>Historia de la institución.</p>
-<p>Proyecto institucional.</p>
-<p>Equipo directivo.</p>
-</div>
-</details>
+  <details open>
+    <summary>🏛️ Institucional</summary>
+    <div class="contenido">
+      <ul>
+        <li>Historia de la institución.</li>
+        <li>Proyecto institucional.</li>
+        <li>Equipo directivo.</li>
+        <li>Acuerdos institucionales de convivencia.</li>
+      </ul>
+    </div>
+  </details>
 
-<details>
-<summary>🎓 Estudiantes</summary>
-<div class="contenido">
-<p>Inscripciones</p>
-<p>Mesas de examen</p>
-<p>Centro de estudiantes</p>
-</div>
-</details>
+  <details open>
+    <summary>🎓 Estudiantes</summary>
+    <div class="contenido">
+      <ul>
+        <li>Inscripciones</li>
+        <li>Mesas de examen</li>
+        <li>Centro de estudiantes</li>
+        <li>Orientaciones</li>
+      </ul>
+    </div>
+  </details>
 
-<details class="horarios">
-<summary>📚 Horarios Escolares 2026</summary>
-<div class="contenido">
-Agregá aquí los horarios por curso.
-</div>
-</details>
+  <details class="horarios" open>
+    <summary>📋 Horarios Escolares 2026</summary>
 
-<details>
-<summary>📻 Radio Escolar</summary>
-<div class="contenido">
-Información de la radio escolar.
-</div>
-</details>
+    <details class="anio">
+      <summary>1° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/1_a.pdf" target="_blank">1° A</a>
+        <a class="curso" href="./horarios/1_b.pdf" target="_blank">1° B</a>
+        <a class="curso" href="./horarios/1_c.pdf" target="_blank">1° C</a>
+        <a class="curso" href="./horarios/1_d.pdf" target="_blank">1° D</a>
+      </div>
+    </details>
 
-<details>
-<summary>🤝 Cooperadora</summary>
-<div class="contenido">
-Información de la cooperadora.
-</div>
-</details>
+    <details class="anio">
+      <summary>2° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/2_a.pdf" target="_blank">2° A</a>
+        <a class="curso" href="./horarios/2_b.pdf" target="_blank">2° B</a>
+        <a class="curso" href="./horarios/2_c.pdf" target="_blank">2° C</a>
+        <a class="curso" href="./horarios/2_d.pdf" target="_blank">2° D</a>
+      </div>
+    </details>
 
-<details>
-<summary>📸 Instagram Oficial</summary>
-<div class="contenido" style="text-align:center">
-<a class="instagram-btn" href="https://www.instagram.com/ees4lacosta/" target="_blank">
-📸 @ees4lacosta
-</a>
-</div>
-</details>
+    <details class="anio">
+      <summary>3° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/3_a.pdf" target="_blank">3° A</a>
+        <a class="curso" href="./horarios/3_b.pdf" target="_blank">3° B</a>
+        <a class="curso" href="./horarios/3_c.pdf" target="_blank">3° C</a>
+        <a class="curso" href="./horarios/3_d.pdf" target="_blank">3° D</a>
+      </div>
+    </details>
 
-<details>
-<summary>📞 Contacto</summary>
-<div class="contenido">
-San Bernardo - Partido de La Costa
-</div>
-</details>
+    <details class="anio">
+      <summary>4° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/4_1_comunicaciones.pdf" target="_blank">4° 1° Comunicaciones</a>
+        <a class="curso" href="./horarios/4_2_comunicaciones.pdf" target="_blank">4° 2° Comunicaciones</a>
+        <a class="curso" href="./horarios/4_3_economia.pdf" target="_blank">4° 3° Economía</a>
+        <a class="curso" href="./horarios/4_4_cs_naturales.pdf" target="_blank">4° 4° Cs. Naturales</a>
+        <a class="curso" href="./horarios/4_5_cs_sociales.pdf" target="_blank">4° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+    <details class="anio">
+      <summary>5° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/5_1_comunicaciones.pdf" target="_blank">5° 1° Comunicaciones</a>
+        <a class="curso" href="./horarios/5_2_comunicaciones.pdf" target="_blank">5° 2° Comunicaciones</a>
+        <a class="curso" href="./horarios/5_3_economia.pdf" target="_blank">5° 3° Economía</a>
+        <a class="curso" href="./horarios/5_4_cs_naturales.pdf" target="_blank">5° 4° Cs. Naturales</a>
+        <a class="curso" href="./horarios/5_5_cs_sociales.pdf" target="_blank">5° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+    <details class="anio">
+      <summary>6° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/6_1_comunicaciones.pdf" target="_blank">6° 1° Comunicaciones</a>
+        <a class="curso" href="./horarios/6_2_comunicaciones.pdf" target="_blank">6° 2° Comunicaciones</a>
+        <a class="curso" href="./horarios/6_3_economia.pdf" target="_blank">6° 3° Economía</a>
+        <a class="curso" href="./horarios/6_4_cs_naturales.pdf" target="_blank">6° 4° Cs. Naturales</a>
+        <a class="curso" href="./horarios/6_5_cs_sociales.pdf" target="_blank">6° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+  </details>
+
+  <details>
+    <summary>📻 Radio Escolar</summary>
+    <div class="contenido">
+      <p>La Escuela Secundaria N° 4 de San Bernardo es parte de la Red de Radios Escolares con Radio CAJ. La radio escolar fortalece la participación de los estudiantes y la comunicación institucional.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>🤝 Cooperadora</summary>
+    <div class="contenido">
+      <p>Información de la asociación cooperadora y actividades de colaboración con la escuela.</p>
+    </div>
+  </details>
+
+  <details open>
+    <summary>📸 Instagram Oficial</summary>
+    <div class="contenido instagram-area">
+      <p>Seguinos para enterarte de todas las novedades, actividades y proyectos de la escuela.</p>
+      <a class="instagram-btn" href="https://www.instagram.com/ees4lacosta/" target="_blank">📸 @ees4lacosta</a>
+    </div>
+  </details>
+
+  <details>
+    <summary>📞 Contacto</summary>
+    <div class="contenido">
+      <p><strong>📍 San Bernardo - Partido de La Costa</strong></p>
+      <p><strong>✉️ Contacto:</strong> escuela4lacosta@gmail.com</p>
+    </div>
+  </details>
 
 </main>
 
 <footer>
-E.E.S. N° 4 Francisco P. Moreno
+  <p>📍 San Bernardo - Partido de La Costa</p>
+  <p>✉️ Contacto: escuela4lacosta@gmail.com</p>
+  <p>© 2025 - E.E.S. N° 4 Francisco P. Moreno - Todos los derechos reservados.</p>
 </footer>
 
-<a href="https://www.instagram.com/ees4lacosta/" target="_blank" class="instagram-float">
-📸 Instagram
-</a>
+<a href="https://www.instagram.com/ees4lacosta/" target="_blank" class="instagram-float">📸 Instagram</a>
 
 </body>
 </html>
+
