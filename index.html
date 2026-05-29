@@ -1,285 +1,241 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Escuela Secundaria</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E.E.S. N° 4 - Francisco P. Moreno</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff8e1;
-      color: #333;
-    }
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#fff8e1;
+color:#333;
+}
 
-    header {
-      background: linear-gradient(135deg, #f57c00, #ffd54f);
-      color: white;
-      text-align: center;
-      padding: 35px 15px;
-      border-bottom: 8px solid #43a047;
-    }
+header{
+background:linear-gradient(135deg,#f57c00,#ffb300);
+color:white;
+padding:30px;
+border-bottom:8px solid #2e7d32;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-    }
+.header-contenido{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:30px;
+}
 
-    header p {
-      font-size: 18px;
-      font-weight: bold;
-    }
+.logo{
+width:140px;
+height:auto;
+border-radius:50%;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+flex-shrink:0;
+}
 
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 25px 15px;
-    }
+.titulo{
+flex:1;
+}
 
-    details {
-      margin-bottom: 15px;
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 2px solid #ffcc80;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    }
+.titulo h1{
+margin:0;
+font-size:56px;
+font-weight:bold;
+}
 
-    summary {
-      background: #f57c00;
-      color: white;
-      padding: 18px;
-      cursor: pointer;
-      font-size: 20px;
-      font-weight: bold;
-    }
+.titulo p{
+margin:5px 0;
+font-size:24px;
+font-weight:bold;
+}
 
-    summary:hover {
-      background: #43a047;
-    }
+main{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
 
-    .contenido {
-      padding: 20px;
-      line-height: 1.6;
-    }
+details{
+background:white;
+border-radius:12px;
+margin-bottom:15px;
+border:2px solid #ffcc80;
+overflow:hidden;
+box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
 
-    .contenido a {
-      color: #e65100;
-      font-weight: bold;
-      text-decoration: none;
-    }
+summary{
+background:#f57c00;
+color:white;
+padding:18px;
+font-weight:bold;
+cursor:pointer;
+}
 
-    .cursos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      padding: 15px;
-    }
+details.horarios > summary{
+background:#1565c0;
+}
 
-    .curso {
-      background: #43a047;
-      color: white;
-      text-decoration: none;
-      padding: 16px;
-      border-radius: 10px;
-      text-align: center;
-      font-weight: bold;
-      border-bottom: 5px solid #1b5e20;
-      transition: 0.2s;
-    }
+details.anio > summary{
+background:#1976d2;
+}
 
-    .curso:hover {
-      background: #2e7d32;
-      transform: scale(1.03);
-    }
+.contenido{
+padding:20px;
+}
 
-    /* HORARIOS CON OTRO COLOR */
-    details.horarios > summary {
-      background: #1565c0;
-    }
+.cursos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:10px;
+padding:15px;
+}
 
-    details.horarios > summary:hover {
-      background: #0d47a1;
-    }
+.curso{
+background:#43a047;
+color:white;
+text-decoration:none;
+padding:15px;
+border-radius:10px;
+text-align:center;
+font-weight:bold;
+}
 
-    details.anio {
-      border: 2px solid #90caf9;
-      margin: 12px;
-    }
+.instagram-btn{
+display:inline-block;
+background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
+color:white;
+text-decoration:none;
+padding:15px 25px;
+border-radius:12px;
+font-weight:bold;
+}
 
-    details.anio > summary {
-      background: #1976d2;
-    }
+.instagram-float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
+color:white;
+text-decoration:none;
+padding:15px 20px;
+border-radius:50px;
+font-weight:bold;
+}
 
-    details.anio > summary:hover {
-      background: #0d47a1;
-    }
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+}
 
-    
-.instagram-btn{display:inline-block;background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);color:white !important;text-decoration:none;padding:15px 25px;border-radius:12px;font-weight:bold;font-size:18px;}
-.instagram-float{position:fixed;bottom:20px;right:20px;background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);color:white;text-decoration:none;padding:15px 20px;border-radius:50px;font-weight:bold;z-index:999;}
+@media(max-width:768px){
+.header-contenido{
+flex-direction:column;
+text-align:center;
+}
 
-footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 22px;
-      margin-top: 30px;
-    }
+.logo{
+width:120px;
+}
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 28px;
-      }
+.titulo h1{
+font-size:36px;
+}
 
-      summary {
-        font-size: 18px;
-      }
-    }
-  </style>
+.titulo p{
+font-size:18px;
+}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>Escuela Secundaria</h1>
-  <p>Partido de La Costa</p>
+<div class="header-contenido">
+
+<img src="1.jpg" alt="Logo EES4" class="logo">
+
+<div class="titulo">
+<h1>E.E.S. N° 4</h1>
+<p>Francisco P. Moreno</p>
+<p>San Bernardo - Partido de La Costa</p>
+</div>
+
+</div>
 </header>
 
 <main>
 
-  <details>
-    <summary>🏫 Institucional</summary>
-    <div class="contenido">
-      <p>Historia de la institución.</p>
-      <p>Proyecto institucional.</p>
-      <p>Equipo directivo.</p>
-      <p>Acuerdos institucionales de convivencia.</p>
-    </div>
-  </details>
+<details>
+<summary>🏫 Institucional</summary>
+<div class="contenido">
+<p>Historia de la institución.</p>
+<p>Proyecto institucional.</p>
+<p>Equipo directivo.</p>
+</div>
+</details>
 
-  
+<details>
+<summary>🎓 Estudiantes</summary>
+<div class="contenido">
+<p>Inscripciones</p>
+<p>Mesas de examen</p>
+<p>Centro de estudiantes</p>
+</div>
+</details>
 
-  <details>
-    <summary>🎓 Estudiantes</summary>
-    <div class="contenido">
-      <p><a href="#">Inscripciones</a></p>
-      <p><a href="#">Mesas de examen</a></p>
-      <p><a href="#">Centro de estudiantes</a></p>
-      <p><a href="#">Orientaciones</a></p>
-    </div>
-  </details>
+<details class="horarios">
+<summary>📚 Horarios Escolares 2026</summary>
+<div class="contenido">
+Agregá aquí los horarios por curso.
+</div>
+</details>
 
-  <details class="horarios">
-    <summary>📚 Horarios Escolares 2026</summary>
+<details>
+<summary>📻 Radio Escolar</summary>
+<div class="contenido">
+Información de la radio escolar.
+</div>
+</details>
 
-    <details class="anio">
-      <summary>1° Año</summary>
-      <div class="cursos">
-        <a class="curso" href="./horarios/1_a.pdf" target="_blank">1° A</a>
-        <a class="curso" href="./horarios/1_b.pdf" target="_blank">1° B</a>
-        <a class="curso" href="./horarios/1_c.pdf" target="_blank">1° C</a>
-        <a class="curso" href="./horarios/1_d.pdf" target="_blank">1° D</a>
-      </div>
-    </details>
+<details>
+<summary>🤝 Cooperadora</summary>
+<div class="contenido">
+Información de la cooperadora.
+</div>
+</details>
 
-    <details class="anio">
-      <summary>2° Año</summary>
-      <div class="cursos">
-        <a class="curso" href="./horarios/2_a.pdf" target="_blank">2° A</a>
-        <a class="curso" href="./horarios/2_b.pdf" target="_blank">2° B</a>
-        <a class="curso" href="./horarios/2_c.pdf" target="_blank">2° C</a>
-        <a class="curso" href="./horarios/2_d.pdf" target="_blank">2° D</a>
-      </div>
-    </details>
+<details>
+<summary>📸 Instagram Oficial</summary>
+<div class="contenido" style="text-align:center">
+<a class="instagram-btn" href="https://www.instagram.com/ees4lacosta/" target="_blank">
+📸 @ees4lacosta
+</a>
+</div>
+</details>
 
-    <details class="anio">
-      <summary>3° Año</summary>
-      <div class="cursos">
-        <a class="curso" href="./horarios/3_a.pdf" target="_blank">3° A</a>
-        <a class="curso" href="./horarios/3_b.pdf" target="_blank">3° B</a>
-        <a class="curso" href="./horarios/3_c.pdf" target="_blank">3° C</a>
-        <a class="curso" href="./horarios/3_d.pdf" target="_blank">3° D</a>
-      </div>
-    </details>
-
-    <details class="anio">
-      <summary>4° Año</summary>
-      <div class="cursos">
-        <a class="curso" href="./horarios/4_1_comunicaciones.pdf" target="_blank">4° 1° Comunicaciones</a>
-        <a class="curso" href="./horarios/4_2_comunicaciones.pdf" target="_blank">4° 2° Comunicaciones</a>
-        <a class="curso" href="./horarios/4_3_economia.pdf" target="_blank">4° 3° Economía</a>
-        <a class="curso" href="./horarios/4_4_cs_naturales.pdf" target="_blank">4° 4° Cs. Naturales</a>
-        <a class="curso" href="./horarios/4_5_cs_sociales.pdf" target="_blank">4° 5° Cs. Sociales</a>
-      </div>
-    </details>
-
-    <details class="anio">
-      <summary>5° Año</summary>
-      <div class="cursos">
-        <a class="curso" href="./horarios/5_1_comunicaciones.pdf" target="_blank">5° 1° Comunicaciones</a>
-        <a class="curso" href="./horarios/5_2_comunicaciones.pdf" target="_blank">5° 2° Comunicaciones</a>
-        <a class="curso" href="./horarios/5_3_economia.pdf" target="_blank">5° 3° Economía</a>
-        <a class="curso" href="./horarios/5_4_cs_naturales.pdf" target="_blank">5° 4° Cs. Naturales</a>
-        <a class="curso" href="./horarios/5_5_cs_sociales.pdf" target="_blank">5° 5° Cs. Sociales</a>
-      </div>
-    </details>
-
-    <details class="anio">
-      <summary>6° Año</summary>
-      <div class="cursos">
-        <a class="curso" href="./horarios/6_1_comunicaciones.pdf" target="_blank">6° 1° Comunicaciones</a>
-        <a class="curso" href="./horarios/6_2_comunicaciones.pdf" target="_blank">6° 2° Comunicaciones</a>
-        <a class="curso" href="./horarios/6_3_economia.pdf" target="_blank">6° 3° Economía</a>
-        <a class="curso" href="./horarios/6_4_cs_naturales.pdf" target="_blank">6° 4° Cs. Naturales</a>
-        <a class="curso" href="./horarios/6_5_cs_sociales.pdf" target="_blank">6° 5° Cs. Sociales</a>
-      </div>
-    </details>
-
-  </details>
-
-  <details>
-    <summary>📻 Radio Escolar</summary>
-    <div class="contenido">
-      <p>La Escuela Secundaria nº 4 de San Bernardo es parte de la Red de Radios Escolares con Radio CAJ (Centro de Actividades Juveniles) y articula su proyecto institucional con toda la Provincia de Buenos Aires.
-Una de sus estudiantes de 6º 2ª del turno tarde, Valentina, invitó a nuestros conductores del Noticiero para entrevistarlos en su programa “El Cafecito de la Tarde” que sale al aire a través de FM 106.1.
-Asimismo, la radio escolar tiene programación las 24 horas, realizada íntegramente por sus estudiantes.</p>
-    </div>
-  </details>
-
-  <details>
-    <summary>🤝 Cooperadora</summary>
-    <div class="contenido">
-      <p>Información de la asociación cooperadora y actividades de colaboración con la escuela.</p>
-    </div>
-  </details>
-
-  
-
-  
-  <details>
-    <summary>📸 Instagram Oficial</summary>
-    <div class="contenido" style="text-align:center;">
-      <p>Seguinos para enterarte de todas las novedades y actividades de la escuela.</p>
-      <a class="instagram-btn" href="https://www.instagram.com/ees4lacosta/" target="_blank">📸 @ees4lacosta</a>
-    </div>
-  </details>
-
-  <details>
-    <summary>📞 Contacto</summary>
-    <div class="contenido">
-      <p><strong>Dirección:</strong> Completar dirección de la escuela</p>
-      <p><strong>Teléfono:</strong> Completar teléfono</p>
-      <p><strong>Email:</strong> completar@email.com</p>
-    </div>
-  </details>
+<details>
+<summary>📞 Contacto</summary>
+<div class="contenido">
+San Bernardo - Partido de La Costa
+</div>
+</details>
 
 </main>
 
 <footer>
-  Escuela Secundaria · Ciclo Lectivo 2026
+E.E.S. N° 4 Francisco P. Moreno
 </footer>
 
-<a href="https://www.instagram.com/ees4lacosta/" target="_blank" class="instagram-float">📸 Instagram</a></body>
+<a href="https://www.instagram.com/ees4lacosta/" target="_blank" class="instagram-float">
+📸 Instagram
+</a>
+
+</body>
 </html>
