@@ -78,20 +78,42 @@
     }
 
     .curso {
-      background: #ff9800;
+      background: #43a047;
       color: white;
       text-decoration: none;
       padding: 16px;
       border-radius: 10px;
       text-align: center;
       font-weight: bold;
-      border-bottom: 5px solid #43a047;
+      border-bottom: 5px solid #1b5e20;
       transition: 0.2s;
     }
 
     .curso:hover {
-      background: #43a047;
+      background: #2e7d32;
       transform: scale(1.03);
+    }
+
+    /* HORARIOS CON OTRO COLOR */
+    details.horarios > summary {
+      background: #1565c0;
+    }
+
+    details.horarios > summary:hover {
+      background: #0d47a1;
+    }
+
+    details.anio {
+      border: 2px solid #90caf9;
+      margin: 12px;
+    }
+
+    details.anio > summary {
+      background: #1976d2;
+    }
+
+    details.anio > summary:hover {
+      background: #0d47a1;
     }
 
     footer {
@@ -153,10 +175,10 @@
     </div>
   </details>
 
-  <details>
+  <details class="horarios">
     <summary>📚 Horarios Escolares 2026</summary>
 
-    <details>
+    <details class="anio">
       <summary>1° Año</summary>
       <div class="cursos">
         <a class="curso" href="./horarios/1_a.pdf" target="_blank">1° A</a>
@@ -166,7 +188,7 @@
       </div>
     </details>
 
-    <details>
+    <details class="anio">
       <summary>2° Año</summary>
       <div class="cursos">
         <a class="curso" href="./horarios/2_a.pdf" target="_blank">2° A</a>
@@ -176,7 +198,7 @@
       </div>
     </details>
 
-    <details>
+    <details class="anio">
       <summary>3° Año</summary>
       <div class="cursos">
         <a class="curso" href="./horarios/3_a.pdf" target="_blank">3° A</a>
@@ -186,7 +208,7 @@
       </div>
     </details>
 
-    <details>
+    <details class="anio">
       <summary>4° Año</summary>
       <div class="cursos">
         <a class="curso" href="./horarios/4_1_comunicaciones.pdf" target="_blank">4° 1° Comunicaciones</a>
@@ -197,7 +219,7 @@
       </div>
     </details>
 
-    <details>
+    <details class="anio">
       <summary>5° Año</summary>
       <div class="cursos">
         <a class="curso" href="./horarios/5_1_comunicaciones.pdf" target="_blank">5° 1° Comunicaciones</a>
@@ -208,7 +230,7 @@
       </div>
     </details>
 
-    <details>
+    <details class="anio">
       <summary>6° Año</summary>
       <div class="cursos">
         <a class="curso" href="./horarios/6_1_comunicaciones.pdf" target="_blank">6° 1° Comunicaciones</a>
