@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E.E.S. N° 4 - Francisco P. Moreno</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(90deg,#fff7df,#ffffff,#fff7df);
+      color:#222;
+    }
+
+    header{
+      min-height:260px;
+      background:linear-gradient(135deg,#e65100,#ff7a00,#ffb300);
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+      border-bottom:8px solid #2e7d32;
+      padding:35px 20px;
+    }
+
+    header::before{
+      content:"";
+      position:absolute;
+      left:35px;
+      top:50%;
+      transform:translateY(-50%);
+      width:300px;
+      height:300px;
+      background:url("1.jpg") center center no-repeat;
+      background-size:contain;
+      opacity:.16;
+      filter:sepia(1) saturate(1.4);
+    }
+
+    .titulo-header{
+      position:relative;
+      z-index:2;
+      text-shadow:3px 4px 8px rgba(0,0,0,.28);
+    }
+
+    .titulo-header h1{
+      margin:0;
+      font-size:clamp(52px,8vw,92px);
+      letter-spacing:8px;
+      font-weight:900;
+    }
+
+    .titulo-header h2{
+      margin:10px 0 0;
+      font-size:clamp(24px,4vw,40px);
+      font-weight:900;
+      letter-spacing:2px;
+    }
+
+    .titulo-header p{
+      margin:12px 0 0;
+      font-size:clamp(17px,2.6vw,26px);
+      font-weight:900;
+    }
+
+    main{
+      max-width:1060px;
+      margin:auto;
+      padding:30px 16px;
+    }
+
+    details{
+      background:white;
+      margin-bottom:14px;
+      border-radius:8px;
+      overflow:hidden;
+      border:1px solid #ddd;
+      box-shadow:0 4px 14px rgba(0,0,0,.15);
+    }
+
+    summary{
+      list-style:none;
+      background:linear-gradient(90deg,#f45100,#ff6d00);
+      color:white;
+      padding:15px 20px;
+      cursor:pointer;
+      font-size:23px;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    summary::after{
+      content:"⌄";
+      font-size:26px;
+      font-weight:bold;
+      transition:.2s;
+    }
+
+    details[open] > summary::after{
+      transform:rotate(180deg);
+    }
+
+    .contenido{
+      padding:20px 28px;
+      line-height:1.7;
+      font-size:17px;
+    }
+
+    .contenido ul{
+      margin:0;
+      padding-left:20px;
+    }
+
+    .contenido li{
+      margin:9px 0;
+    }
+
+    .contenido li::marker{
+      color:#ff6d00;
+    }
+
+
+
+    .noticias > summary{
+      background:linear-gradient(90deg,#c62828,#ef5350);
+    }
+
+    .comunicados > summary{
+      background:linear-gradient(90deg,#ef6c00,#fb8c00);
+    }
+
+    .mesas > summary{
+      background:linear-gradient(90deg,#283593,#3949ab);
+    }
+
+    .calendario > summary{
+      background:linear-gradient(90deg,#00695c,#00897b);
+    }
+
+    .info-card{
+      background:#ffffff;
+      border:1px solid #ddd;
+      border-left:6px solid #ff6d00;
+      border-radius:8px;
+      padding:14px;
+      margin:12px;
+      box-shadow:0 3px 8px rgba(0,0,0,.12);
+      line-height:1.6;
+    }
+
+    .info-card h3{
+      margin:0 0 8px;
+      color:#333;
+    }
+
+    .info-card a{
+      display:inline-block;
+      margin-top:8px;
+      background:#f45100;
+      color:white;
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:6px;
+      font-weight:900;
+    }
+
+    .tabla-web{
+      width:100%;
+      border-collapse:collapse;
+      background:white;
+      margin:12px 0;
+      font-size:15px;
+    }
+
+    .tabla-web th{
+      background:#333;
+      color:white;
+      padding:10px;
+      text-align:left;
+    }
+
+    .tabla-web td{
+      padding:10px;
+      border-bottom:1px solid #ddd;
+    }
+
+    @media(max-width:768px){
+      .tabla-web,
+      .tabla-web thead,
+      .tabla-web tbody,
+      .tabla-web th,
+      .tabla-web td,
+      .tabla-web tr{
+        display:block;
+      }
+
+      .tabla-web thead{
+        display:none;
+      }
+
+      .tabla-web tr{
+        margin-bottom:12px;
+        border:1px solid #ddd;
+        border-radius:8px;
+        overflow:hidden;
+      }
+
+      .tabla-web td{
+        display:flex;
+        justify-content:space-between;
+        gap:10px;
+        text-align:right;
+      }
+
+      .tabla-web td::before{
+        content:attr(data-label);
+        font-weight:bold;
+        color:#333;
+        text-align:left;
+      }
+    }
+
+    .continuidad > summary{
+      background:linear-gradient(90deg,#6a1b9a,#8e24aa);
+    }
+
+    .continuidad .anio > summary{
+      background:linear-gradient(90deg,#6a1b9a,#9c27b0);
+    }
+
+    .actividad-card{
+      background:#faf5ff;
+      border:1px solid #ce93d8;
+      border-radius:8px;
+      padding:14px;
+      margin:12px;
+      box-shadow:0 3px 8px rgba(0,0,0,.12);
+      font-size:15px;
+      line-height:1.6;
+    }
+
+    .actividad-card p{
+      margin:6px 0;
+    }
+
+    .actividad-card a{
+      display:inline-block;
+      margin-top:8px;
+      background:#6a1b9a;
+      color:white;
+      text-decoration:none;
+      padding:9px 14px;
+      border-radius:6px;
+      font-weight:900;
+    }
+
+    .actividad-card a:hover{
+      background:#4a148c;
+      transform:scale(1.03);
+    }
+
+    .mensaje-continuidad{
+      padding:18px;
+      margin:12px;
+      background:#fff3e0;
+      border-left:6px solid #ff9800;
+      border-radius:8px;
+      font-weight:bold;
+    }
+
+    .horarios > summary{
+      background:linear-gradient(90deg,#1565c0,#0d47a1);
+    }
+
+    .anio{
+      margin:12px;
+      border:1px solid #90caf9;
+      box-shadow:none;
+      border-radius:7px;
+    }
+
+    .anio > summary{
+      background:linear-gradient(90deg,#1565c0,#1e73dd);
+      padding:10px 14px;
+      font-size:18px;
+    }
+
+    .anio > summary::after{
+      content:"›";
+      font-size:20px;
+    }
+
+    .anio[open] > summary::after{
+      transform:rotate(90deg);
+    }
+
+    .cursos{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:18px;
+      padding:16px 28px;
+      background:#fff;
+    }
+
+    .curso{
+      display:block;
+      background:linear-gradient(180deg,#4f963f,#2e7d32);
+      color:white;
+      text-align:center;
+      text-decoration:none;
+      padding:11px 12px;
+      border-radius:6px;
+      font-weight:900;
+      box-shadow:0 3px 7px rgba(0,0,0,.25);
+      transition:.2s;
+    }
+
+    .curso:hover{
+      transform:scale(1.04);
+      background:linear-gradient(180deg,#66bb6a,#1b5e20);
+    }
+
+    .instagram-area{
+      text-align:center;
+    }
+
+    .instagram-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
+      color:white !important;
+      text-decoration:none;
+      padding:16px 42px;
+      border-radius:8px;
+      font-weight:900;
+      font-size:20px;
+      margin-top:10px;
+      box-shadow:0 5px 15px rgba(0,0,0,.25);
+      transition:.2s;
+    }
+
+    .instagram-btn:hover{
+      transform:scale(1.05);
+    }
+
+
+    .facebook-float{
+      position:fixed;
+      bottom:98px;
+      right:28px;
+      background:#1877F2;
+      color:white;
+      text-decoration:none;
+      padding:17px 28px;
+      border-radius:50px;
+      font-weight:900;
+      font-size:18px;
+      box-shadow:0 5px 18px rgba(0,0,0,.35);
+      z-index:999;
+    }
+
+    .biblioteca-float{
+      position:fixed;
+      bottom:168px;
+      right:28px;
+      background:linear-gradient(45deg,#2e7d32,#43a047);
+      color:white;
+      text-decoration:none;
+      padding:17px 28px;
+      border-radius:50px;
+      font-weight:900;
+      font-size:18px;
+      box-shadow:0 5px 18px rgba(0,0,0,.35);
+      z-index:999;
+    }
+
+    .facebook-float:hover,
+    .biblioteca-float:hover,
+    .instagram-float:hover{
+      transform:scale(1.05);
+    }
+
+    footer{
+      background:linear-gradient(90deg,#111,#222,#111);
+      color:white;
+      text-align:center;
+      padding:28px 20px;
+      font-size:16px;
+      line-height:1.8;
+    }
+
+    .instagram-float{
+      position:fixed;
+      bottom:28px;
+      right:28px;
+      background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
+      color:white;
+      text-decoration:none;
+      padding:17px 28px;
+      border-radius:50px;
+      font-weight:900;
+      font-size:18px;
+      box-shadow:0 5px 18px rgba(0,0,0,.35);
+      z-index:999;
+    }
+
+    @media(max-width:768px){
+      header{
+        min-height:230px;
+        padding:30px 12px;
+      }
+
+      header::before{
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        width:230px;
+        height:230px;
+        opacity:.13;
+      }
+
+      .titulo-header h1{
+        font-size:48px;
+        letter-spacing:4px;
+      }
+
+      .titulo-header h2{
+        font-size:24px;
+      }
+
+      .titulo-header p{
+        font-size:16px;
+      }
+
+      main{
+        padding:20px 10px;
+      }
+
+      summary{
+        font-size:19px;
+        padding:14px 15px;
+      }
+
+      .contenido{
+        padding:16px;
+        font-size:15px;
+      }
+
+      .cursos{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+        padding:12px;
+      }
+
+      .curso{
+        font-size:14px;
+        padding:11px 6px;
+      }
+
+      .instagram-float{
+        right:14px;
+        bottom:14px;
+        padding:13px 18px;
+        font-size:15px;
+      }
+
+
+      .facebook-float{
+        right:14px;
+        bottom:70px;
+        padding:13px 18px;
+        font-size:15px;
+      }
+
+      .biblioteca-float{
+        right:14px;
+        bottom:126px;
+        padding:13px 18px;
+        font-size:15px;
+      }
+
+    }
+
+    @media(max-width:420px){
+      .cursos{
+        grid-template-columns:1fr;
+      }
+
+      .titulo-header h1{
+        font-size:38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="titulo-header">
+    <h1>E.E.S. N° 4</h1>
+    <h2>FRANCISCO P. MORENO</h2>
+    <p>SAN BERNARDO - PARTIDO DE LA COSTA</p>
+  </div>
+</header>
+
+<main>
+
+  <details open>
+    <summary>🏛️ Institucional</summary>
+    <div class="contenido">
+      <ul>
+        <li>Historia de la institución.</li>
+        <li>Proyecto institucional.</li>
+        <li>Equipo directivo.</li>
+        <li>Acuerdos institucionales de convivencia.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details open>
+    <summary>🎓 Estudiantes</summary>
+    <div class="contenido">
+      <ul>
+        <li>Inscripciones</li>
+        <li>Mesas de examen</li>
+        <li>Centro de estudiantes</li>
+        <li>Orientaciones</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="horarios" open>
+    <summary>📋 Horarios Escolares 2026</summary>
+
+    <details class="anio">
+      <summary>1° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/1_a.pdf" target="_blank">1° A</a>
+        <a class="curso" href="./horarios/1_b.pdf" target="_blank">1° B</a>
+        <a class="curso" href="./horarios/1_c.pdf" target="_blank">1° C</a>
+        <a class="curso" href="./horarios/1_d.pdf" target="_blank">1° D</a>
+      </div>
+    </details>
+
+    <details class="anio">
+      <summary>2° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/2_a.pdf" target="_blank">2° A</a>
+        <a class="curso" href="./horarios/2_b.pdf" target="_blank">2° B</a>
+        <a class="curso" href="./horarios/2_c.pdf" target="_blank">2° C</a>
+        <a class="curso" href="./horarios/2_d.pdf" target="_blank">2° D</a>
+      </div>
+    </details>
+
+    <details class="anio">
+      <summary>3° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/3_a.pdf" target="_blank">3° A</a>
+        <a class="curso" href="./horarios/3_b.pdf" target="_blank">3° B</a>
+        <a class="curso" href="./horarios/3_c.pdf" target="_blank">3° C</a>
+        <a class="curso" href="./horarios/3_d.pdf" target="_blank">3° D</a>
+      </div>
+    </details>
+
+    <details class="anio">
+      <summary>4° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/4_1_comunicaciones.pdf" target="_blank">4° 1° Comunicaciones</a>
+        <a class="curso" href="./horarios/4_2_comunicaciones.pdf" target="_blank">4° 2° Comunicaciones</a>
+        <a class="curso" href="./horarios/4_3_economia.pdf" target="_blank">4° 3° Economía</a>
+        <a class="curso" href="./horarios/4_4_cs_naturales.pdf" target="_blank">4° 4° Cs. Naturales</a>
+        <a class="curso" href="./horarios/4_5_cs_sociales.pdf" target="_blank">4° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+    <details class="anio">
+      <summary>5° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/5_1_comunicaciones.pdf" target="_blank">5° 1° Comunicaciones</a>
+        <a class="curso" href="./horarios/5_2_comunicaciones.pdf" target="_blank">5° 2° Comunicaciones</a>
+        <a class="curso" href="./horarios/5_3_economia.pdf" target="_blank">5° 3° Economía</a>
+        <a class="curso" href="./horarios/5_4_cs_naturales.pdf" target="_blank">5° 4° Cs. Naturales</a>
+        <a class="curso" href="./horarios/5_5_cs_sociales.pdf" target="_blank">5° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+    <details class="anio">
+      <summary>6° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/6_1_comunicaciones.pdf" target="_blank">6° 1° Comunicaciones</a>
+        <a class="curso" href="./horarios/6_2_comunicaciones.pdf" target="_blank">6° 2° Comunicaciones</a>
+        <a class="curso" href="./horarios/6_3_economia.pdf" target="_blank">6° 3° Economía</a>
+        <a class="curso" href="./horarios/6_4_cs_naturales.pdf" target="_blank">6° 4° Cs. Naturales</a>
+        <a class="curso" href="./horarios/6_5_cs_sociales.pdf" target="_blank">6° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+  </details>
+
+
+  <details class="continuidad" open>
+    <summary>📘 Continuidad Pedagógica</summary>
+    <div class="contenido">
+      <p>Las actividades se cargan automáticamente desde una planilla de Google Sheets.</p>
+      <p>La planilla debe tener estas columnas: <strong>Curso, Profesor, Materia, FechaSubida, FechaEntrega, LinkDrive</strong>.</p>
+    </div>
+
+    <div id="continuidad-contenedor">
+      <div class="mensaje-continuidad">Cargando actividades...</div>
+    </div>
+  </details>
+
+
+  <details class="noticias">
+    <summary>📰 Noticias Institucionales</summary>
+    <div class="contenido">
+      <p>Noticias cargadas desde Google Sheets.</p>
+    </div>
+    <div id="noticias-contenedor">
+      <div class="mensaje-continuidad">Cargando noticias...</div>
+    </div>
+  </details>
+
+  <details class="comunicados">
+    <summary>📢 Comunicados para Estudiantes</summary>
+    <div class="contenido">
+      <p>Avisos y comunicados cargados desde Google Sheets.</p>
+    </div>
+    <div id="comunicados-contenedor">
+      <div class="mensaje-continuidad">Cargando comunicados...</div>
+    </div>
+  </details>
+
+  <details class="mesas">
+    <summary>📝 Mesas de Examen</summary>
+    <div class="contenido">
+      <p>Mesas de examen cargadas desde Google Sheets.</p>
+    </div>
+    <div id="mesas-contenedor">
+      <div class="mensaje-continuidad">Cargando mesas...</div>
+    </div>
+  </details>
+
+  <details class="calendario">
+    <summary>📅 Calendario Escolar</summary>
+    <div class="contenido">
+      <p>Fechas importantes, actos y actividades institucionales.</p>
+    </div>
+    <div id="calendario-contenedor">
+      <div class="mensaje-continuidad">Cargando calendario...</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>📻 Radio Escolar</summary>
+    <div class="contenido">
+      <p>La Escuela Secundaria N° 4 de San Bernardo es parte de la Red de Radios Escolares con Radio CAJ. La radio escolar fortalece la participación de los estudiantes y la comunicación institucional.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>🤝 Cooperadora</summary>
+    <div class="contenido">
+      <p>Información de la asociación cooperadora y actividades de colaboración con la escuela.</p>
+    </div>
+  </details>
+
+  <details open>
+    <summary>📸 Instagram Oficial</summary>
+    <div class="contenido instagram-area">
+      <p>Seguinos para enterarte de todas las novedades, actividades y proyectos de la escuela.</p>
+      <a class="instagram-btn" href="https://www.instagram.com/ees4lacosta/" target="_blank">📸 @ees4lacosta</a>
+    </div>
+  </details>
+
+  <details>
+    <summary>📞 Contacto</summary>
+    <div class="contenido">
+      <p><strong>📍 San Bernardo - Partido de La Costa</strong></p>
+      <p><strong>✉️ Contacto:</strong> escuela4lacosta@gmail.com</p>
+    </div>
+  </details>
+
+</main>
+
+<footer>
+  <p>📍 San Bernardo - Partido de La Costa</p>
+  <p>✉️ Contacto: escuela4lacosta@gmail.com</p>
+  <p>© 2025 - E.E.S. N° 4 Francisco P. Moreno - Todos los derechos reservados.</p>
+</footer>
+
+
+<a href="https://drive.google.com/drive/folders/10KpCBLeD7ukky7QTNTLy0uJ7K8tx70gF" target="_blank" class="biblioteca-float">📚 Biblioteca</a>
+<a href="https://www.facebook.com/ees4lacosta" target="_blank" class="facebook-float">📘 Facebook</a>
+
+<a href="https://www.instagram.com/ees4lacosta/" target="_blank" class="instagram-float">📸 Instagram</a>
+
+
+<script>
+/*
+IMPORTANTE:
+1) Crear una Google Sheets con estas columnas exactas:
+Curso | Profesor | Materia | FechaSubida | FechaEntrega | LinkDrive
+
+2) Publicar la hoja como CSV:
+Archivo > Compartir > Publicar en la web > elegir hoja > CSV
+
+3) Copiar el link CSV y pegarlo abajo donde dice PEGAR_ACA_LINK_CSV.
+*/
+
+const URL_SHEET = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJuhdMxF4tNz6CWDhDSeiDYRpGH9eY45tTbQ6GLZXuJLxG3TIQnHnGZl2bXPvUGajboVl71xJaMe3m/pub?gid=0&single=true&output=csv";
+
+const ORDEN_CURSOS = [
+  "1° A","1° B","1° C","1° D",
+  "2° A","2° B","2° C","2° D",
+  "3° A","3° B","3° C","3° D",
+  "4° 1° Comunicaciones","4° 2° Comunicaciones","4° 3° Economía","4° 4° Cs. Naturales","4° 5° Cs. Sociales",
+  "5° 1° Comunicaciones","5° 2° Comunicaciones","5° 3° Economía","5° 4° Cs. Naturales","5° 5° Cs. Sociales",
+  "6° 1° Comunicaciones","6° 2° Comunicaciones","6° 3° Economía","6° 4° Cs. Naturales","6° 5° Cs. Sociales"
+];
+
+function parseCSV(texto){
+  const filas = [];
+  let fila = [];
+  let valor = "";
+  let dentroComillas = false;
+
+  for(let i=0; i<texto.length; i++){
+    const char = texto[i];
+    const next = texto[i+1];
+
+    if(char === '"' && dentroComillas && next === '"'){
+      valor += '"';
+      i++;
+    }else if(char === '"'){
+      dentroComillas = !dentroComillas;
+    }else if(char === "," && !dentroComillas){
+      fila.push(valor.trim());
+      valor = "";
+    }else if((char === "\n" || char === "\r") && !dentroComillas){
+      if(valor || fila.length){
+        fila.push(valor.trim());
+        filas.push(fila);
+        fila = [];
+        valor = "";
+      }
+      if(char === "\r" && next === "\n") i++;
+    }else{
+      valor += char;
+    }
+  }
+
+  if(valor || fila.length){
+    fila.push(valor.trim());
+    filas.push(fila);
+  }
+
+  return filas;
+}
+
+function normalizar(texto){
+  return (texto || "").trim();
+}
+
+async function cargarContinuidad(){
+  const contenedor = document.getElementById("continuidad-contenedor");
+
+  if(URL_SHEET === "PEGAR_ACA_LINK_CSV"){
+    contenedor.innerHTML = `
+      <div class="mensaje-continuidad">
+        Falta pegar el link CSV de Google Sheets en la variable URL_SHEET.
+      </div>
+    `;
+    return;
+  }
+
+  try{
+    const respuesta = await fetch(URL_SHEET + '&t=' + new Date().getTime());
+    const texto = await respuesta.text();
+    const filas = parseCSV(texto);
+
+    if(filas.length <= 1){
+      contenedor.innerHTML = `<div class="mensaje-continuidad">No hay actividades cargadas.</div>`;
+      return;
+    }
+
+    const encabezados = filas[0].map(h => h.trim());
+    const datos = filas.slice(1);
+
+    const idxCurso = encabezados.indexOf("Curso");
+    const idxProfesor = encabezados.indexOf("Profesor");
+    const idxMateria = encabezados.indexOf("Materia");
+    const idxSubida = encabezados.indexOf("FechaSubida");
+    const idxEntrega = encabezados.indexOf("FechaEntrega");
+    const idxLink = encabezados.indexOf("LinkDrive");
+
+    const actividadesPorCurso = {};
+
+    datos.forEach(fila => {
+      const curso = normalizar(fila[idxCurso]);
+      const profesor = normalizar(fila[idxProfesor]);
+      const materia = normalizar(fila[idxMateria]);
+      const fechaSubida = normalizar(fila[idxSubida]);
+      const fechaEntrega = normalizar(fila[idxEntrega]);
+      const linkDrive = normalizar(fila[idxLink]);
+
+      if(!curso || !profesor || !materia) return;
+
+      if(!actividadesPorCurso[curso]){
+        actividadesPorCurso[curso] = [];
+      }
+
+      actividadesPorCurso[curso].push({
+        profesor,
+        materia,
+        fechaSubida,
+        fechaEntrega,
+        linkDrive
+      });
+    });
+
+    let htmlFinal = "";
+
+    ORDEN_CURSOS.forEach(curso => {
+      const actividades = actividadesPorCurso[curso];
+
+      if(actividades && actividades.length > 0){
+        let tarjetas = "";
+
+        actividades.forEach(act => {
+          tarjetas += `
+            <div class="actividad-card">
+              <p><strong>Profesor/a:</strong> ${act.profesor}</p>
+              <p><strong>Materia:</strong> ${act.materia}</p>
+              <p><strong>Fecha de subida:</strong> ${act.fechaSubida || "Sin completar"}</p>
+              <p><strong>Fecha de entrega por alumno:</strong> ${act.fechaEntrega || "Sin completar"}</p>
+              ${act.linkDrive ? `<a href="${act.linkDrive}" target="_blank">📂 Ver actividad en Drive</a>` : `<p><strong>Link Drive:</strong> Sin completar</p>`}
+            </div>
+          `;
+        });
+
+        htmlFinal += `
+          <details class="anio">
+            <summary>${curso}</summary>
+            ${tarjetas}
+          </details>
+        `;
+      }
+    });
+
+    if(!htmlFinal){
+      htmlFinal = `<div class="mensaje-continuidad">No hay actividades cargadas actualmente.</div>`;
+    }
+
+    contenedor.innerHTML = htmlFinal;
+
+  }catch(error){
+    contenedor.innerHTML = `
+      <div class="mensaje-continuidad">
+        No se pudieron cargar las actividades. Revisá que el link CSV de Google Sheets sea público.
+      </div>
+    `;
+  }
+}
+
+cargarContinuidad();
+</script>
+
+
+<script>
+/*
+==================================================
+PLANILLAS EXTRA PARA ADMINISTRAR LA WEB
+==================================================
+
+Para cada sección creá una hoja de Google Sheets, publicala como CSV
+y pegá el enlace correspondiente en cada variable.
+
+Columnas recomendadas:
+
+NOTICIAS:
+Fecha | Titulo | Descripcion | Imagen | Link
+
+COMUNICADOS:
+Fecha | Destinatario | Mensaje
+
+MESAS:
+Materia | Fecha | Hora | Aula | Profesor
+
+CALENDARIO:
+Fecha | Evento | Descripcion
+*/
+
+const URL_NOTICIAS = "PEGAR_LINK_CSV_NOTICIAS";
+const URL_COMUNICADOS = "PEGAR_LINK_CSV_COMUNICADOS";
+const URL_MESAS = "PEGAR_LINK_CSV_MESAS";
+const URL_CALENDARIO = "PEGAR_LINK_CSV_CALENDARIO";
+
+async function cargarCSVSimple(url){
+  const respuesta = await fetch(url + "&t=" + new Date().getTime());
+  const texto = await respuesta.text();
+  return parseCSV(texto);
+}
+
+function urlValida(url){
+  return url && !url.startsWith("PEGAR_LINK");
+}
+
+async function cargarNoticias(){
+  const contenedor = document.getElementById("noticias-contenedor");
+
+  if(!urlValida(URL_NOTICIAS)){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">Falta pegar el link CSV de Noticias.</div>`;
+    return;
+  }
+
+  try{
+    const filas = await cargarCSVSimple(URL_NOTICIAS);
+    const datos = filas.slice(1);
+
+    let htmlNoticias = "";
+
+    datos.forEach(fila => {
+      const fecha = fila[0] || "";
+      const titulo = fila[1] || "";
+      const descripcion = fila[2] || "";
+      const imagen = fila[3] || "";
+      const link = fila[4] || "";
+
+      if(!titulo) return;
+
+      htmlNoticias += `
+        <div class="info-card">
+          ${imagen ? `<img src="${imagen}" alt="${titulo}" style="max-width:100%;border-radius:8px;margin-bottom:10px;">` : ""}
+          <h3>${titulo}</h3>
+          <p><strong>Fecha:</strong> ${fecha}</p>
+          <p>${descripcion}</p>
+          ${link ? `<a href="${link}" target="_blank">Leer más</a>` : ""}
+        </div>
+      `;
+    });
+
+    contenedor.innerHTML = htmlNoticias || `<div class="mensaje-continuidad">No hay noticias cargadas.</div>`;
+  }catch(error){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">No se pudieron cargar las noticias.</div>`;
+  }
+}
+
+async function cargarComunicados(){
+  const contenedor = document.getElementById("comunicados-contenedor");
+
+  if(!urlValida(URL_COMUNICADOS)){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">Falta pegar el link CSV de Comunicados.</div>`;
+    return;
+  }
+
+  try{
+    const filas = await cargarCSVSimple(URL_COMUNICADOS);
+    const datos = filas.slice(1);
+
+    let htmlComunicados = "";
+
+    datos.forEach(fila => {
+      const fecha = fila[0] || "";
+      const destinatario = fila[1] || "";
+      const mensaje = fila[2] || "";
+
+      if(!mensaje) return;
+
+      htmlComunicados += `
+        <div class="info-card">
+          <h3>📢 Comunicado</h3>
+          <p><strong>Fecha:</strong> ${fecha}</p>
+          <p><strong>Destinatario:</strong> ${destinatario}</p>
+          <p>${mensaje}</p>
+        </div>
+      `;
+    });
+
+    contenedor.innerHTML = htmlComunicados || `<div class="mensaje-continuidad">No hay comunicados cargados.</div>`;
+  }catch(error){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">No se pudieron cargar los comunicados.</div>`;
+  }
+}
+
+async function cargarMesas(){
+  const contenedor = document.getElementById("mesas-contenedor");
+
+  if(!urlValida(URL_MESAS)){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">Falta pegar el link CSV de Mesas de Examen.</div>`;
+    return;
+  }
+
+  try{
+    const filas = await cargarCSVSimple(URL_MESAS);
+    const datos = filas.slice(1);
+
+    let filasTabla = "";
+
+    datos.forEach(fila => {
+      const materia = fila[0] || "";
+      const fecha = fila[1] || "";
+      const hora = fila[2] || "";
+      const aula = fila[3] || "";
+      const profesor = fila[4] || "";
+
+      if(!materia) return;
+
+      filasTabla += `
+        <tr>
+          <td data-label="Materia">${materia}</td>
+          <td data-label="Fecha">${fecha}</td>
+          <td data-label="Hora">${hora}</td>
+          <td data-label="Aula">${aula}</td>
+          <td data-label="Profesor">${profesor}</td>
+        </tr>
+      `;
+    });
+
+    contenedor.innerHTML = filasTabla ? `
+      <div class="contenido">
+        <table class="tabla-web">
+          <thead>
+            <tr>
+              <th>Materia</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Aula</th>
+              <th>Profesor</th>
+            </tr>
+          </thead>
+          <tbody>${filasTabla}</tbody>
+        </table>
+      </div>
+    ` : `<div class="mensaje-continuidad">No hay mesas cargadas.</div>`;
+
+  }catch(error){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">No se pudieron cargar las mesas.</div>`;
+  }
+}
+
+async function cargarCalendario(){
+  const contenedor = document.getElementById("calendario-contenedor");
+
+  if(!urlValida(URL_CALENDARIO)){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">Falta pegar el link CSV de Calendario.</div>`;
+    return;
+  }
+
+  try{
+    const filas = await cargarCSVSimple(URL_CALENDARIO);
+    const datos = filas.slice(1);
+
+    let htmlCalendario = "";
+
+    datos.forEach(fila => {
+      const fecha = fila[0] || "";
+      const evento = fila[1] || "";
+      const descripcion = fila[2] || "";
+
+      if(!evento) return;
+
+      htmlCalendario += `
+        <div class="info-card">
+          <h3>📅 ${evento}</h3>
+          <p><strong>Fecha:</strong> ${fecha}</p>
+          <p>${descripcion}</p>
+        </div>
+      `;
+    });
+
+    contenedor.innerHTML = htmlCalendario || `<div class="mensaje-continuidad">No hay eventos cargados.</div>`;
+  }catch(error){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">No se pudo cargar el calendario.</div>`;
+  }
+}
+
+cargarNoticias();
+cargarComunicados();
+cargarMesas();
+cargarCalendario();
+</script>
+
+</body>
+</html>
