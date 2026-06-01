@@ -965,7 +965,7 @@ async function cargarComunicados(){
 
   try{
     const filas = await cargarCSVSimple(URL_COMUNICADOS);
-    const datos = filas.slice(1);
+  const datos = filas.slice(1).reverse();
 
     let htmlComunicados = "";
 
