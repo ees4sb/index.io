@@ -142,15 +142,17 @@
     }
 
     .info-card{
-      background:#ffffff;
-      border:1px solid #ddd;
-      border-left:6px solid #ff6d00;
-      border-radius:8px;
-      padding:14px;
-      margin:12px;
-      box-shadow:0 3px 8px rgba(0,0,0,.12);
-      line-height:1.6;
-    }
+  background:#ffffff;
+  border:1px solid #ddd;
+  border-left:6px solid #ff6d00;
+  border-radius:8px;
+  padding:14px;
+  margin:12px auto;
+  box-shadow:0 3px 8px rgba(0,0,0,.12);
+  line-height:1.6;
+  max-width:700px;
+  width:100%;
+}
 
     .info-card h3{
       margin:0 0 8px;
@@ -496,6 +498,26 @@
         font-size:38px;
       }
     }
+    #comunicados-contenedor{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+#calendario-contenedor{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+@media(max-width:768px){
+
+  .info-card{
+    width:95%;
+    margin:10px auto;
+  }
+
+}
   </style>
 </head>
 
@@ -969,3 +991,4 @@ cargarCalendario();
 
 </body>
 </html>
+
