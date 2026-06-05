@@ -17,90 +17,113 @@
       color:#222;
     }
 
-header{
-  background:linear-gradient(135deg,#e65100,#ff7a00,#ffb300);
+.hero-header{
+  position:relative;
+  background:
+    linear-gradient(135deg, rgba(230,81,0,.95), rgba(255,122,0,.95)),
+    url("fondo-header.jpg");
+  background-size:cover;
+  background-position:center;
   color:white;
-  border-bottom:8px solid #2e7d32;
-  padding:25px 15px;
+  padding:28px 20px 70px;
+  overflow:hidden;
 }
 
-.header-moderno{
+.hero-content{
   max-width:1100px;
   margin:auto;
   display:flex;
   align-items:center;
-  justify-content:center;
-  gap:25px;
+  gap:35px;
 }
 
-.logo-header{
-  width:170px;
-  height:170px;
-  object-fit:contain;
-  background:white;
-  border-radius:50%;
-  padding:8px;
-  box-shadow:0 5px 18px rgba(0,0,0,.3);
-  flex-shrink:0;
+.hero-logo{
+  width:210px;
+  filter:drop-shadow(0 8px 8px rgba(0,0,0,.45));
 }
 
-.titulo-header{
-  text-align:left;
-  text-shadow:3px 4px 8px rgba(0,0,0,.28);
-}
-
-.titulo-header h1{
+.hero-text h1{
   margin:0;
-  font-size:clamp(42px,7vw,84px);
-  letter-spacing:5px;
+  font-size:clamp(48px,8vw,95px);
   font-weight:900;
+  color:white;
+  letter-spacing:4px;
+  text-shadow:5px 6px 0 rgba(0,0,0,.35);
+  font-family:Arial Black, Impact, sans-serif;
 }
 
-.titulo-header h2{
-  margin:6px 0 0;
-  font-size:clamp(20px,3vw,34px);
-  font-weight:900;
+.hero-text h2{
+  margin:0 0 18px;
+  font-size:clamp(28px,4vw,48px);
+  color:#ffd21f;
+  font-style:italic;
+  text-shadow:3px 4px 5px rgba(0,0,0,.45);
 }
 
-.titulo-header p{
-  margin:8px 0 0;
-  font-size:clamp(14px,2vw,22px);
+.hero-text span{
+  display:inline-block;
+  background:#006b3f;
+  color:white;
+  padding:12px 35px;
+  font-size:24px;
   font-weight:900;
+  letter-spacing:2px;
+  box-shadow:0 5px 0 rgba(0,0,0,.25);
 }
+
+.ondas{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:55px;
+  background:white;
+  border-radius:55% 55% 0 0;
+}
+
+.onda-verde{
+  position:absolute;
+  top:-18px;
+  width:100%;
+  height:12px;
+  background:#007a3d;
+}
+
+.onda-amarilla{
+  position:absolute;
+  top:-30px;
+  width:100%;
+  height:12px;
+  background:#ffd21f;
+}
+
 @media(max-width:768px){
+  .hero-header{
+    padding:22px 12px 55px;
+  }
 
-  .header-moderno{
-    flex-direction:row;
-    justify-content:center;
-    align-items:center;
+  .hero-content{
     gap:12px;
   }
 
-  .logo-header{
-    width:90px;
-    height:90px;
-    padding:4px;
+  .hero-logo{
+    width:105px;
   }
 
-  .titulo-header{
-    text-align:left;
-  }
-
-  .titulo-header h1{
-    font-size:28px;
+  .hero-text h1{
+    font-size:38px;
     letter-spacing:2px;
-    margin:0;
   }
 
-  .titulo-header h2{
-    font-size:15px;
-    margin:2px 0;
+  .hero-text h2{
+    font-size:20px;
   }
 
-  .titulo-header p{
-    font-size:11px;
-    margin:0;
+  .hero-text span{
+    font-size:13px;
+    padding:8px 14px;
   }
+}
 
 }
     main{
@@ -577,15 +600,20 @@ header{
 
 <body>
 
-<header>
-  <div class="header-moderno">
-    <img src="1.jpg" alt="Logo EES N° 4" class="logo-header">
+<header class="hero-header">
+  <div class="hero-content">
+    <img src="1.jpg" class="hero-logo">
 
-    <div class="titulo-header">
-      <h1>E.E.S. N° 4</h1>
-      <h2>FRANCISCO P. MORENO</h2>
-      <p>SAN BERNARDO - PARTIDO DE LA COSTA</p>
+    <div class="hero-text">
+      <h1>E.E.S. N°4</h1>
+      <h2>Francisco P. Moreno</h2>
+      <span>CONTINUIDAD PEDAGÓGICA</span>
     </div>
+  </div>
+
+  <div class="ondas">
+    <div class="onda-verde"></div>
+    <div class="onda-amarilla"></div>
   </div>
 </header>
 
