@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E.E.S. N° 4 - Francisco P. Moreno</title>
+
+  <style>
+    *{ box-sizing:border-box; }
+
+    :root{
+      --naranja:#f26a00;
+      --naranja2:#ff8a00;
+      --amarillo:#ffd21f;
+      --verde:#00783e;
+      --verde2:#139447;
+      --crema:#fff8e8;
+      --oscuro:#1d1d1d;
+      --sombra:0 12px 30px rgba(0,0,0,.16);
+    }
+
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--oscuro);
+      background:
+        radial-gradient(circle at top right, rgba(255,210,31,.28), transparent 28%),
+        linear-gradient(180deg,#fff8e8 0%,#fffdf7 45%,#f5fff3 100%);
+    }
+
+    a{ color:inherit; }
+
+    /* ================= HEADER TIPO FLYER ================= */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      color:white;
+      background:
+        linear-gradient(135deg, rgba(242,106,0,.96), rgba(255,138,0,.96)),
+        repeating-linear-gradient(135deg, rgba(255,255,255,.08) 0 2px, transparent 2px 18px);
+      min-height:405px;
+      padding:28px 18px 78px;
+      isolation:isolate;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 88% 14%, rgba(255,255,255,.24) 0 2px, transparent 2px 8px),
+        linear-gradient(155deg, transparent 0 35%, rgba(255,255,255,.12) 35% 37%, transparent 37% 100%);
+      opacity:.65;
+      z-index:-1;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:-5%;
+      right:-5%;
+      bottom:-36px;
+      height:96px;
+      background:white;
+      border-top:10px solid var(--amarillo);
+      transform:rotate(-2deg);
+      box-shadow:0 -10px 0 var(--verde);
+      z-index:-1;
+    }
+
+    .hero-inner{
+      max-width:1180px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:260px 1fr;
+      align-items:center;
+      gap:34px;
+    }
+
+    .logo-header{
+      width:250px;
+      max-width:100%;
+      filter:drop-shadow(0 12px 18px rgba(0,0,0,.45));
+    }
+
+    .titulo-header{
+      text-align:left;
+    }
+
+    .titulo-header h1{
+      margin:0;
+      font-size:clamp(54px,8vw,108px);
+      line-height:.9;
+      font-weight:1000;
+      letter-spacing:7px;
+      color:white;
+      text-transform:uppercase;
+      text-shadow:5px 7px 0 rgba(0,0,0,.22), 0 10px 22px rgba(0,0,0,.34);
+      transform:skew(-5deg);
+    }
+
+    .titulo-header h2{
+      margin:10px 0 18px;
+      font-size:clamp(27px,4vw,48px);
+      line-height:1;
+      font-weight:900;
+      font-style:italic;
+      color:var(--amarillo);
+      text-shadow:3px 4px 0 rgba(0,0,0,.20), 0 8px 18px rgba(0,0,0,.28);
+    }
+
+    .franja-verde{
+      display:inline-block;
+      background:linear-gradient(90deg,var(--verde),var(--verde2));
+      color:white;
+      padding:12px 34px;
+      font-size:clamp(18px,2.8vw,31px);
+      font-weight:1000;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      box-shadow:0 8px 18px rgba(0,0,0,.28);
+      position:relative;
+    }
+
+    .franja-verde::before,
+    .franja-verde::after{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:28px;
+      background:inherit;
+    }
+    .franja-verde::before{ left:-17px; transform:skewY(-10deg); }
+    .franja-verde::after{ right:-17px; transform:skewY(10deg); }
+
+    .breadcrumb{
+      max-width:1180px;
+      margin:16px auto 0;
+      padding:0 18px;
+      color:#333;
+      font-weight:700;
+      display:flex;
+      gap:9px;
+      align-items:center;
+      justify-content:center;
+      opacity:.9;
+    }
+
+    main{
+      max-width:1180px;
+      margin:auto;
+      padding:22px 18px 34px;
+    }
+
+    .titulo-seccion{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:22px;
+      margin:34px auto 10px;
+      color:var(--verde);
+      text-align:center;
+    }
+
+    .titulo-seccion::before,
+    .titulo-seccion::after{
+      content:"";
+      flex:1;
+      max-width:280px;
+      height:3px;
+      background:linear-gradient(90deg, transparent, var(--verde));
+    }
+    .titulo-seccion::after{ background:linear-gradient(90deg,var(--verde),transparent); }
+
+    .titulo-seccion h2{
+      margin:0;
+      font-size:clamp(30px,5vw,52px);
+      line-height:1;
+      font-weight:1000;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
+    .subtitulo{
+      text-align:center;
+      font-size:18px;
+      margin:0 0 20px;
+      color:#333;
+      font-weight:700;
+    }
+
+    /* ================= BOTONES GRANDES ================= */
+    .cards-cursos{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      gap:22px;
+      margin:26px 0 42px;
+    }
+
+    .card-curso{
+      background:rgba(255,255,255,.92);
+      border-radius:14px;
+      min-height:176px;
+      text-decoration:none;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      color:var(--verde);
+      box-shadow:var(--sombra);
+      border:1px solid rgba(0,0,0,.08);
+      border-bottom:9px solid var(--verde2);
+      transition:.2s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card-curso:nth-child(even){
+      color:var(--naranja);
+      border-bottom-color:var(--naranja2);
+    }
+
+    .card-curso:hover{
+      transform:translateY(-6px) scale(1.02);
+      box-shadow:0 18px 32px rgba(0,0,0,.22);
+    }
+
+    .card-curso .icono{ font-size:32px; margin-bottom:6px; }
+    .card-curso .numero{ font-size:52px; font-weight:1000; line-height:.9; }
+    .card-curso .anio-txt{ font-size:22px; font-weight:1000; text-transform:uppercase; }
+
+    /* ================= BLOQUE HORARIOS ================= */
+    .panel-horarios{
+      display:grid;
+      grid-template-columns:330px 1fr;
+      gap:30px;
+      align-items:center;
+      background:rgba(255,255,255,.78);
+      border-radius:24px;
+      padding:32px;
+      box-shadow:var(--sombra);
+      border:1px solid rgba(0,0,0,.08);
+      margin-bottom:26px;
+    }
+
+    .panel-info h2{
+      margin:0 0 8px;
+      color:var(--naranja);
+      font-size:42px;
+      line-height:1;
+      text-transform:uppercase;
+      font-weight:1000;
+    }
+
+    .panel-info h3{
+      margin:0 0 24px;
+      color:var(--verde);
+      font-size:24px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .lista-check{
+      list-style:none;
+      padding:0;
+      margin:22px 0;
+      display:grid;
+      gap:12px;
+      font-size:18px;
+    }
+
+    .lista-check li::before{
+      content:"✓";
+      display:inline-grid;
+      place-items:center;
+      width:25px;
+      height:25px;
+      margin-right:10px;
+      background:var(--verde2);
+      color:white;
+      border-radius:50%;
+      font-weight:900;
+    }
+
+    .btn-principal,
+    .info-card a,
+    .actividad-card a,
+    .instagram-btn,
+    .curso{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      background:linear-gradient(135deg,var(--verde),var(--verde2));
+      color:white !important;
+      text-decoration:none;
+      padding:14px 22px;
+      border-radius:10px;
+      font-weight:1000;
+      box-shadow:0 8px 16px rgba(0,120,62,.25);
+      transition:.2s;
+      border:none;
+    }
+
+    .btn-principal:hover,
+    .info-card a:hover,
+    .actividad-card a:hover,
+    .instagram-btn:hover,
+    .curso:hover{ transform:scale(1.04); }
+
+    .visor-pdf{
+      background:#202124;
+      padding:12px;
+      border-radius:18px;
+      box-shadow:0 12px 24px rgba(0,0,0,.28);
+      border:6px solid #2b2d30;
+    }
+
+    .visor-pdf iframe{
+      display:block;
+      width:100%;
+      height:520px;
+      border:0;
+      border-radius:8px;
+      background:white;
+    }
+
+    /* ================= ACORDEONES DEL INDEX ORIGINAL ================= */
+    details{
+      background:white;
+      margin:16px 0;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 8px 22px rgba(0,0,0,.10);
+    }
+
+    summary{
+      list-style:none;
+      background:linear-gradient(90deg,var(--naranja),var(--naranja2));
+      color:white;
+      padding:17px 22px;
+      cursor:pointer;
+      font-size:21px;
+      font-weight:1000;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    summary::-webkit-details-marker{ display:none; }
+    summary::after{ content:"⌄"; font-size:26px; transition:.2s; }
+    details[open] > summary::after{ transform:rotate(180deg); }
+
+    .contenido{
+      padding:20px 28px;
+      line-height:1.7;
+      font-size:17px;
+    }
+
+    .contenido ul{ margin:0; padding-left:20px; }
+    .contenido li{ margin:9px 0; }
+    .contenido li::marker{ color:var(--naranja); }
+
+    .comunicados > summary{ background:linear-gradient(90deg,#ef6c00,#fb8c00); }
+    .calendario > summary{ background:linear-gradient(90deg,#00695c,#00897b); }
+    .continuidad > summary{ background:linear-gradient(90deg,#6a1b9a,#8e24aa); }
+    .horarios > summary{ background:linear-gradient(90deg,#1565c0,#0d47a1); }
+
+    .info-card{
+      background:#ffffff;
+      border:1px solid #ddd;
+      border-left:7px solid var(--naranja);
+      border-radius:14px;
+      padding:16px;
+      margin:14px auto;
+      box-shadow:0 5px 14px rgba(0,0,0,.12);
+      line-height:1.6;
+      max-width:760px;
+      width:100%;
+    }
+
+    .info-card h3{ margin:0 0 8px; color:#333; }
+
+    .anio{
+      margin:14px;
+      border:1px solid #b9d8ff;
+      box-shadow:none;
+      border-radius:12px;
+    }
+
+    .anio > summary{
+      background:linear-gradient(90deg,#1565c0,#1e73dd);
+      padding:12px 16px;
+      font-size:18px;
+    }
+
+    .continuidad .anio > summary{ background:linear-gradient(90deg,#6a1b9a,#9c27b0); }
+    .anio > summary::after{ content:"›"; font-size:20px; }
+    .anio[open] > summary::after{ transform:rotate(90deg); }
+
+    .cursos{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+      gap:14px;
+      padding:18px 24px;
+      background:#fff;
+    }
+
+    .curso{
+      background:linear-gradient(180deg,#4f963f,#2e7d32);
+      padding:13px 12px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0 5px 12px rgba(0,0,0,.20);
+    }
+
+    .actividad-card{
+      background:#faf5ff;
+      border:1px solid #ce93d8;
+      border-radius:14px;
+      padding:16px;
+      margin:14px;
+      box-shadow:0 5px 14px rgba(0,0,0,.12);
+      font-size:15px;
+      line-height:1.6;
+    }
+
+    .actividad-card p{ margin:6px 0; }
+    .actividad-card a{ background:linear-gradient(135deg,#6a1b9a,#8e24aa); margin-top:8px; }
+
+    .mensaje-continuidad{
+      padding:18px;
+      margin:14px;
+      background:#fff3e0;
+      border-left:7px solid #ff9800;
+      border-radius:12px;
+      font-weight:bold;
+    }
+
+    #comunicados-contenedor,
+    #calendario-contenedor{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .instagram-area{ text-align:center; }
+    .instagram-btn{ background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45); font-size:20px; margin-top:10px; }
+
+    .contacto-strip{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:18px;
+      align-items:center;
+      background:linear-gradient(135deg,#fff7e6,#fff3d8);
+      border-radius:20px;
+      padding:22px 28px;
+      box-shadow:var(--sombra);
+      margin:26px 0;
+      border:1px solid rgba(0,0,0,.06);
+    }
+
+    .contacto-strip strong{ color:var(--verde); font-size:22px; }
+    .contacto-strip a{ background:linear-gradient(135deg,var(--naranja),#ff4b00); }
+
+    .facebook-float,
+    .biblioteca-float,
+    .instagram-float{
+      position:fixed;
+      right:24px;
+      color:white;
+      text-decoration:none;
+      padding:15px 22px;
+      border-radius:50px;
+      font-weight:1000;
+      font-size:16px;
+      box-shadow:0 5px 18px rgba(0,0,0,.35);
+      z-index:999;
+      transition:.2s;
+    }
+    .facebook-float{ bottom:92px; background:#1877F2; }
+    .biblioteca-float{ bottom:154px; background:linear-gradient(45deg,#2e7d32,#43a047); }
+    .instagram-float{ bottom:30px; background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45); }
+    .facebook-float:hover,.biblioteca-float:hover,.instagram-float:hover{ transform:scale(1.05); }
+
+    footer{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(135deg,#005b31,#00783e,#004625);
+      color:white;
+      text-align:center;
+      padding:32px 20px;
+      font-size:16px;
+      line-height:1.8;
+      border-top:8px solid var(--amarillo);
+    }
+
+    footer h3{ margin-top:0; }
+
+    .footer-mapa{
+      width:100%;
+      max-width:900px;
+      margin:20px auto;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 8px 24px rgba(0,0,0,.35);
+    }
+
+    .footer-mapa iframe{ width:100%; height:300px; border:0; display:block; }
+
+    /* ================= RESPONSIVE ================= */
+    @media(max-width:920px){
+      .hero{ min-height:auto; padding-bottom:70px; }
+      .hero-inner{ grid-template-columns:1fr; text-align:center; gap:16px; }
+      .logo-header{ width:190px; margin:auto; }
+      .titulo-header{ text-align:center; }
+      .cards-cursos{ grid-template-columns:repeat(3,1fr); }
+      .panel-horarios{ grid-template-columns:1fr; padding:22px; }
+      .visor-pdf iframe{ height:460px; }
+    }
+
+    @media(max-width:768px){
+      .hero{ padding:18px 12px 58px; }
+      .logo-header{ width:135px; }
+      .titulo-header h1{ font-size:42px; letter-spacing:3px; }
+      .titulo-header h2{ font-size:25px; }
+      .franja-verde{ font-size:16px; padding:10px 18px; }
+      main{ padding:16px 10px 28px; }
+      .cards-cursos{ grid-template-columns:repeat(2,1fr); gap:12px; }
+      .card-curso{ min-height:130px; }
+      .card-curso .numero{ font-size:42px; }
+      .card-curso .anio-txt{ font-size:17px; }
+      .titulo-seccion{ gap:10px; }
+      .titulo-seccion h2{ font-size:31px; }
+      .panel-info h2{ font-size:33px; }
+      .panel-info h3{ font-size:20px; }
+      .visor-pdf iframe{ height:430px; }
+      summary{ font-size:18px; padding:15px; }
+      .contenido{ padding:16px; font-size:15px; }
+      .cursos{ grid-template-columns:repeat(2,1fr); padding:12px; gap:10px; }
+      .curso{ font-size:14px; padding:12px 8px; }
+      .contacto-strip{ grid-template-columns:1fr; text-align:center; }
+      .facebook-float,.biblioteca-float,.instagram-float{ right:12px; padding:12px 16px; font-size:14px; }
+      .instagram-float{ bottom:14px; }
+      .facebook-float{ bottom:68px; }
+      .biblioteca-float{ bottom:122px; }
+      .footer-mapa iframe{ height:220px; }
+    }
+
+    @media(max-width:420px){
+      .cards-cursos{ grid-template-columns:1fr; }
+      .titulo-header h1{ font-size:36px; }
+      .cursos{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <img src="ess4nuevo-removebg-preview-removebg-preview.png" alt="Logo EES N° 4" class="logo-header">
+
+    <div class="titulo-header">
+      <h1>E.E.S. N° 4</h1>
+      <h2>Francisco P. Moreno</h2>
+      <div class="franja-verde">Continuidad Pedagógica</div>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">🏠 Inicio <span>•</span> Bienvenidos a nuestra plataforma educativa</div>
+
+<main>
+
+  <section id="cursos">
+    <div class="titulo-seccion">
+      <h2>📖 Cursos</h2>
+    </div>
+    <p class="subtitulo">Seleccioná tu curso para acceder a los contenidos</p>
+
+    <div class="cards-cursos">
+      <a class="card-curso" href="#continuidad-contenedor"><span class="icono">👥</span><span class="numero">1°</span><span class="anio-txt">Año</span></a>
+      <a class="card-curso" href="#continuidad-contenedor"><span class="icono">👥</span><span class="numero">2°</span><span class="anio-txt">Año</span></a>
+      <a class="card-curso" href="#continuidad-contenedor"><span class="icono">👥</span><span class="numero">3°</span><span class="anio-txt">Año</span></a>
+      <a class="card-curso" href="#continuidad-contenedor"><span class="icono">👥</span><span class="numero">4°</span><span class="anio-txt">Año</span></a>
+      <a class="card-curso" href="#continuidad-contenedor"><span class="icono">👥</span><span class="numero">5°</span><span class="anio-txt">Año</span></a>
+      <a class="card-curso" href="#continuidad-contenedor"><span class="icono">👥</span><span class="numero">6°</span><span class="anio-txt">Año</span></a>
+    </div>
+  </section>
+
+  <section class="panel-horarios" id="horarios-pdf">
+    <div class="panel-info">
+      <h2>📅 Horarios</h2>
+      <h3>Institucionales</h3>
+      <p>Consultá los horarios escolares desde cualquier dispositivo.</p>
+      <ul class="lista-check">
+        <li>Actualizados</li>
+        <li>Fáciles de consultar</li>
+        <li>Compatible con celulares, tablets y PC</li>
+      </ul>
+      <a class="btn-principal" href="horarios4.pdf" target="_blank">📄 Abrir PDF completo</a>
+      <p style="font-size:14px;color:#555;margin-top:10px;">Descargar o ver en pantalla completa</p>
+    </div>
+
+    <div class="visor-pdf">
+      <iframe src="horarios4.pdf" title="Horarios Escolares 2026"></iframe>
+    </div>
+  </section>
+
+  <div class="contacto-strip">
+    <div>
+      <strong>¿Dudas o consultas?</strong><br>
+      Comunicate con la institución o revisá las redes oficiales.
+    </div>
+    <a class="btn-principal" href="https://www.instagram.com/ees4lacosta/" target="_blank">📸 Instagram oficial</a>
+  </div>
+
+  <details open>
+    <summary>🏛️ Institucional</summary>
+    <div class="contenido">
+      <ul>
+        <li>Historia de la institución.</li>
+        <li>Proyecto institucional.</li>
+        <li>Equipo directivo.</li>
+        <li>Acuerdos institucionales de convivencia.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details open>
+    <summary>🎓 Estudiantes</summary>
+    <div class="contenido">
+      <ul>
+        <li>Inscripciones</li>
+        <li>Mesas de examen</li>
+        <li>Centro de estudiantes</li>
+        <li>Orientaciones</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="horarios" open>
+    <summary>📋 Horarios Escolares 2026 por Curso</summary>
+
+    <details class="anio">
+      <summary>1° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/1_a.pdf" target="_blank">1° A</a>
+        <a class="curso" href="./horarios/1_b.pdf" target="_blank">1° B</a>
+        <a class="curso" href="./horarios/1_c.pdf" target="_blank">1° C</a>
+        <a class="curso" href="./horarios/1_d.pdf" target="_blank">1° D</a>
+      </div>
+    </details>
+
+    <details class="anio">
+      <summary>2° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/2_a.pdf" target="_blank">2° A</a>
+        <a class="curso" href="./horarios/2_b.pdf" target="_blank">2° B</a>
+        <a class="curso" href="./horarios/2_c.pdf" target="_blank">2° C</a>
+        <a class="curso" href="./horarios/2_d.pdf" target="_blank">2° D</a>
+      </div>
+    </details>
+
+    <details class="anio">
+      <summary>3° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/3_a.pdf" target="_blank">3° A</a>
+        <a class="curso" href="./horarios/3_b.pdf" target="_blank">3° B</a>
+        <a class="curso" href="./horarios/3_c.pdf" target="_blank">3° C</a>
+        <a class="curso" href="./horarios/3_d.pdf" target="_blank">3° D</a>
+      </div>
+    </details>
+
+    <details class="anio">
+      <summary>4° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/4_1_comunicaciones.pdf" target="_blank">4° 1° Comunicaciones</a>
+        <a class="curso" href="./horarios/4_2_comunicaciones.pdf" target="_blank">4° 2° Comunicaciones</a>
+        <a class="curso" href="./horarios/4_3_economia.pdf" target="_blank">4° 3° Economía</a>
+        <a class="curso" href="./horarios/4_4_cs_naturales.pdf" target="_blank">4° 4° Cs. Naturales</a>
+        <a class="curso" href="./horarios/4_5_cs_sociales.pdf" target="_blank">4° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+    <details class="anio">
+      <summary>5° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/5_1_comunicaciones.pdf" target="_blank">5° 1° Comunicaciones</a>
+        <a class="curso" href="./horarios/5_2_comunicaciones.pdf" target="_blank">5° 2° Comunicaciones</a>
+        <a class="curso" href="./horarios/5_3_economia.pdf" target="_blank">5° 3° Economía</a>
+        <a class="curso" href="./horarios/5_4_cs_naturales.pdf" target="_blank">5° 4° Cs. Naturales</a>
+        <a class="curso" href="./horarios/5_5_cs_sociales.pdf" target="_blank">5° 5° Cs. Sociales</a>
+      </div>
+    </details>
+
+    <details class="anio">
+      <summary>6° Año</summary>
+      <div class="cursos">
+        <a class="curso" href="./horarios/6_1_comunicaciones.pdf" target="_blank">6° 1° Comunicaciones</a>
+        <a class="curso" href="./horarios/6_2_comunicaciones.pdf" target="_blank">6° 2° Comunicaciones</a>
+        <a class="curso" href="./horarios/6_3_economia.pdf" target="_blank">6° 3° Economía</a>
+        <a class="curso" href="./horarios/6_4_cs_naturales.pdf" target="_blank">6° 4° Cs. Naturales</a>
+        <a class="curso" href="./horarios/6_5_cs_sociales.pdf" target="_blank">6° 5° Cs. Sociales</a>
+      </div>
+    </details>
+  </details>
+
+  <details class="continuidad" open>
+    <summary>📘 Continuidad Pedagógica</summary>
+    <div class="contenido">
+      <p>Las actividades se cargan automáticamente desde una planilla de Google Sheets.</p>
+      <p>La planilla debe tener estas columnas: <strong>Curso, Profesor, Materia, FechaSubida, FechaEntrega, LinkDrive</strong>.</p>
+    </div>
+
+    <div id="continuidad-contenedor">
+      <div class="mensaje-continuidad">Cargando actividades...</div>
+    </div>
+  </details>
+
+  <details class="comunicados">
+    <summary>📢 Comunicados Oficiales</summary>
+    <div class="contenido">
+      <p>Avisos y comunicados cargados desde Google Sheets.</p>
+    </div>
+    <div id="comunicados-contenedor">
+      <div class="mensaje-continuidad">Cargando comunicados...</div>
+    </div>
+  </details>
+
+  <details class="calendario">
+    <summary>📅 Calendario Escolar Oficial</summary>
+    <div class="contenido" style="text-align:center;">
+      <p>Consultá el calendario escolar oficial de la Dirección General de Cultura y Educación.</p>
+      <a class="curso" href="https://abc.gob.ar/calendario_escolar/" target="_blank">📅 Ver Calendario Escolar Oficial</a>
+    </div>
+  </details>
+
+  <details>
+    <summary>📻 Radio Escolar</summary>
+    <div class="contenido">
+      <p>La Escuela Secundaria N° 4 de San Bernardo es parte de la Red de Radios Escolares con Radio CAJ. La radio escolar fortalece la participación de los estudiantes y la comunicación institucional.</p>
+      <p>Asimismo, la radio escolar tiene programación las 24 horas, realizada íntegramente por sus estudiantes.</p>
+      <p><strong>RADIO FM 106.1</strong></p>
+    </div>
+  </details>
+
+  <details>
+    <summary>🤝 Cooperadora</summary>
+    <div class="contenido">
+      <p>Información de la asociación cooperadora y actividades de colaboración con la escuela.</p>
+    </div>
+  </details>
+
+  <details open>
+    <summary>📸 Instagram Oficial</summary>
+    <div class="contenido instagram-area">
+      <p>Seguinos para enterarte de todas las novedades, actividades y proyectos de la escuela.</p>
+      <a class="instagram-btn" href="https://www.instagram.com/ees4lacosta/" target="_blank">📸 @ees4lacosta</a>
+    </div>
+  </details>
+
+  <details>
+    <summary>📞 Contacto</summary>
+    <div class="contenido">
+      <p><strong>📍 C. 21 2700-2798, B7111 San Bernardo del Tuyú, Provincia de Buenos Aires</strong></p>
+      <p><strong>✉️ Contacto:</strong> escuela4lacosta@gmail.com</p>
+    </div>
+  </details>
+
+</main>
+
+<footer>
+  <h3>📍 E.E.S. N° 4 "Francisco P. Moreno"</h3>
+  <p>San Bernardo - Partido de La Costa</p>
+
+  <div class="footer-mapa">
+    <iframe
+      src="https://www.google.com/maps?q=Escuela+4+San+Bernardo&output=embed"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <p style="margin-top:15px;">
+    <a href="https://www.google.com/maps/place/Escuela+4+San+Benardo/" target="_blank" style="color:#ffcc80;font-weight:bold;">Abrir ubicación en Google Maps</a>
+  </p>
+
+  <p style="margin-top:20px;">© 2026 - Todos los derechos reservados.</p>
+</footer>
+
+<a href="https://drive.google.com/drive/folders/10KpCBLeD7ukky7QTNTLy0uJ7K8tx70gF" target="_blank" class="biblioteca-float">📚 Biblioteca</a>
+<a href="https://www.facebook.com/ees4lacosta" target="_blank" class="facebook-float">📘 Facebook</a>
+<a href="https://www.instagram.com/ees4lacosta/" target="_blank" class="instagram-float">📸 Instagram</a>
+
+<script>
+const URL_SHEET = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJuhdMxF4tNz6CWDhDSeiDYRpGH9eY45tTbQ6GLZXuJLxG3TIQnHnGZl2bXPvUGajboVl71xJaMe3m/pub?gid=0&single=true&output=csv";
+
+const ORDEN_CURSOS = [
+  "1° A","1° B","1° C","1° D",
+  "2° A","2° B","2° C","2° D",
+  "3° A","3° B","3° C","3° D",
+  "4° 1° Comunicaciones","4° 2° Comunicaciones","4° 3° Economía","4° 4° Cs. Naturales","4° 5° Cs. Sociales",
+  "5° 1° Comunicaciones","5° 2° Comunicaciones","5° 3° Economía","5° 4° Cs. Naturales","5° 5° Cs. Sociales",
+  "6° 1° Comunicaciones","6° 2° Comunicaciones","6° 3° Economía","6° 4° Cs. Naturales","6° 5° Cs. Sociales"
+];
+
+function parseCSV(texto){
+  const filas = [];
+  let fila = [];
+  let valor = "";
+  let dentroComillas = false;
+
+  for(let i=0; i<texto.length; i++){
+    const char = texto[i];
+    const next = texto[i+1];
+
+    if(char === '"' && dentroComillas && next === '"'){
+      valor += '"';
+      i++;
+    }else if(char === '"'){
+      dentroComillas = !dentroComillas;
+    }else if(char === "," && !dentroComillas){
+      fila.push(valor.trim());
+      valor = "";
+    }else if((char === "\n" || char === "\r") && !dentroComillas){
+      if(valor || fila.length){
+        fila.push(valor.trim());
+        filas.push(fila);
+        fila = [];
+        valor = "";
+      }
+      if(char === "\r" && next === "\n") i++;
+    }else{
+      valor += char;
+    }
+  }
+
+  if(valor || fila.length){
+    fila.push(valor.trim());
+    filas.push(fila);
+  }
+
+  return filas;
+}
+
+function normalizar(texto){ return (texto || "").trim(); }
+
+async function cargarContinuidad(){
+  const contenedor = document.getElementById("continuidad-contenedor");
+
+  if(URL_SHEET === "PEGAR_ACA_LINK_CSV"){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">Falta pegar el link CSV de Google Sheets en la variable URL_SHEET.</div>`;
+    return;
+  }
+
+  try{
+    const respuesta = await fetch(URL_SHEET + '&t=' + new Date().getTime());
+    const texto = await respuesta.text();
+    const filas = parseCSV(texto);
+
+    if(filas.length <= 1){
+      contenedor.innerHTML = `<div class="mensaje-continuidad">No hay actividades cargadas.</div>`;
+      return;
+    }
+
+    const encabezados = filas[0].map(h => h.trim());
+    const datos = filas.slice(1);
+
+    const idxCurso = encabezados.indexOf("Curso");
+    const idxProfesor = encabezados.indexOf("Profesor");
+    const idxMateria = encabezados.indexOf("Materia");
+    const idxSubida = encabezados.indexOf("FechaSubida");
+    const idxEntrega = encabezados.indexOf("FechaEntrega");
+    const idxLink = encabezados.indexOf("LinkDrive");
+
+    const actividadesPorCurso = {};
+
+    datos.forEach(fila => {
+      const curso = normalizar(fila[idxCurso]);
+      const profesor = normalizar(fila[idxProfesor]);
+      const materia = normalizar(fila[idxMateria]);
+      const fechaSubida = normalizar(fila[idxSubida]);
+      const fechaEntrega = normalizar(fila[idxEntrega]);
+      const linkDrive = normalizar(fila[idxLink]);
+
+      if(!curso || !profesor || !materia) return;
+      if(!actividadesPorCurso[curso]) actividadesPorCurso[curso] = [];
+      actividadesPorCurso[curso].push({ profesor, materia, fechaSubida, fechaEntrega, linkDrive });
+    });
+
+    let htmlFinal = "";
+
+    ORDEN_CURSOS.forEach(curso => {
+      const actividades = actividadesPorCurso[curso];
+      if(actividades && actividades.length > 0){
+        let tarjetas = "";
+        actividades.forEach(act => {
+          tarjetas += `
+            <div class="actividad-card">
+              <p><strong>Profesor/a:</strong> ${act.profesor}</p>
+              <p><strong>Materia:</strong> ${act.materia}</p>
+              <p><strong>Fecha de subida:</strong> ${act.fechaSubida || "Sin completar"}</p>
+              <p><strong>Fecha de entrega por alumno:</strong> ${act.fechaEntrega || "Sin completar"}</p>
+              ${act.linkDrive ? `<a href="${act.linkDrive}" target="_blank">📂 Ver actividad en Drive</a>` : `<p><strong>Link Drive:</strong> Sin completar</p>`}
+            </div>
+          `;
+        });
+
+        htmlFinal += `<details class="anio"><summary>${curso}</summary>${tarjetas}</details>`;
+      }
+    });
+
+    contenedor.innerHTML = htmlFinal || `<div class="mensaje-continuidad">No hay actividades cargadas actualmente.</div>`;
+  }catch(error){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">No se pudieron cargar las actividades. Revisá que el link CSV de Google Sheets sea público.</div>`;
+  }
+}
+
+cargarContinuidad();
+</script>
+
+<script>
+const URL_COMUNICADOS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJuhdMxF4tNz6CWDhDSeiDYRpGH9eY45tTbQ6GLZXuJLxG3TIQnHnGZl2bXPvUGajboVl71xJaMe3m/pub?gid=1377339392&single=true&output=csv";
+const URL_CALENDARIO = "PEGAR_LINK_CSV_CALENDARIO";
+
+async function cargarCSVSimple(url){
+  const respuesta = await fetch(url + "&t=" + new Date().getTime());
+  const texto = await respuesta.text();
+  return parseCSV(texto);
+}
+
+function urlValida(url){ return url && !url.startsWith("PEGAR_LINK"); }
+
+async function cargarComunicados(){
+  const contenedor = document.getElementById("comunicados-contenedor");
+  if(!urlValida(URL_COMUNICADOS)){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">Falta pegar el link CSV de Comunicados.</div>`;
+    return;
+  }
+
+  try{
+    const filas = await cargarCSVSimple(URL_COMUNICADOS);
+    const datos = filas.slice(1).reverse();
+    let htmlComunicados = "";
+
+    datos.forEach(fila => {
+      const fecha = fila[0] || "";
+      const destinatario = fila[1] || "";
+      const mensaje = fila[2] || "";
+      if(!mensaje) return;
+      htmlComunicados += `<div class="info-card"><h3>📢 Comunicado</h3><p><strong>Fecha:</strong> ${fecha}</p><p><strong>Destinatario:</strong> ${destinatario}</p><p>${mensaje}</p></div>`;
+    });
+
+    contenedor.innerHTML = htmlComunicados || `<div class="mensaje-continuidad">No hay comunicados cargados.</div>`;
+  }catch(error){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">No se pudieron cargar los comunicados.</div>`;
+  }
+}
+
+async function cargarCalendario(){
+  const contenedor = document.getElementById("calendario-contenedor");
+  if(!contenedor) return;
+
+  if(!urlValida(URL_CALENDARIO)){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">Falta pegar el link CSV de Calendario.</div>`;
+    return;
+  }
+
+  try{
+    const filas = await cargarCSVSimple(URL_CALENDARIO);
+    const datos = filas.slice(1);
+    let htmlCalendario = "";
+
+    datos.forEach(fila => {
+      const fecha = fila[0] || "";
+      const evento = fila[1] || "";
+      const descripcion = fila[2] || "";
+      if(!evento) return;
+      htmlCalendario += `<div class="info-card"><h3>📅 ${evento}</h3><p><strong>Fecha:</strong> ${fecha}</p><p>${descripcion}</p></div>`;
+    });
+
+    contenedor.innerHTML = htmlCalendario || `<div class="mensaje-continuidad">No hay eventos cargados.</div>`;
+  }catch(error){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">No se pudo cargar el calendario.</div>`;
+  }
+}
+
+cargarComunicados();
+cargarCalendario();
+</script>
+
+</body>
+</html>
