@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E.E.S. N° 4 - Francisco P. Moreno</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(90deg,#fff7df,#ffffff,#fff7df);
+      color:#222;
+    }
+.header-banner{
+    width:100%;
+    margin:0;
+    padding:0;
+    line-height:0;
+}
+
+.header-banner img{
+    width:100%;
+    display:block;
+}
+.hero-header{
+  position:relative;
+  background:
+    linear-gradient(135deg, rgba(230,81,0,.95), rgba(255,122,0,.95)),
+    url("fondo-header.jpg");
+  background-size:cover;
+  background-position:center;
+  color:white;
+  padding:28px 20px 70px;
+  overflow:hidden;
+}
+
+.hero-content{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:35px;
+}
+
+.hero-logo{
+  width:210px;
+  filter:drop-shadow(0 8px 8px rgba(0,0,0,.45));
+}
+
+.hero-text h1{
+  margin:0;
+  font-size:clamp(48px,8vw,95px);
+  font-weight:900;
+  color:white;
+  letter-spacing:4px;
+  text-shadow:5px 6px 0 rgba(0,0,0,.35);
+  font-family:Arial Black, Impact, sans-serif;
+}
+
+.hero-text h2{
+  margin:0 0 18px;
+  font-size:clamp(28px,4vw,48px);
+  color:#ffd21f;
+  font-style:italic;
+  text-shadow:3px 4px 5px rgba(0,0,0,.45);
+}
+
+.hero-text span{
+  display:inline-block;
+  background:#006b3f;
+  color:white;
+  padding:12px 35px;
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:2px;
+  box-shadow:0 5px 0 rgba(0,0,0,.25);
+}
+
+.ondas{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:55px;
+  background:white;
+  border-radius:55% 55% 0 0;
+}
+
+.onda-verde{
+  position:absolute;
+  top:-18px;
+  width:100%;
+  height:12px;
+  background:#007a3d;
+}
+
+.onda-amarilla{
+  position:absolute;
+  top:-30px;
+  width:100%;
+  height:12px;
+  background:#ffd21f;
+}
+
+@media(max-width:768px){
+  .hero-header{
+    padding:22px 12px 55px;
+  }
+
+  .hero-content{
+    gap:12px;
+  }
+
+  .hero-logo{
+    width:105px;
+  }
+
+  .hero-text h1{
+    font-size:38px;
+    letter-spacing:2px;
+  }
+
+  .hero-text h2{
+    font-size:20px;
+  }
+
+  .hero-text span{
+    font-size:13px;
+    padding:8px 14px;
+  }
+}
+
+}
+    main{
+      max-width:1060px;
+      margin:auto;
+      padding:30px 16px;
+    }
+
+    details{
+      background:white;
+      margin-bottom:14px;
+      border-radius:8px;
+      overflow:hidden;
+      border:1px solid #ddd;
+      box-shadow:0 4px 14px rgba(0,0,0,.15);
+    }
+
+    summary{
+      list-style:none;
+      background:linear-gradient(90deg,#f45100,#ff6d00);
+      color:white;
+      padding:15px 20px;
+      cursor:pointer;
+      font-size:23px;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    summary::after{
+      content:"⌄";
+      font-size:26px;
+      font-weight:bold;
+      transition:.2s;
+    }
+
+    details[open] > summary::after{
+      transform:rotate(180deg);
+    }
+
+    .contenido{
+      padding:20px 28px;
+      line-height:1.7;
+      font-size:17px;
+    }
+
+    .contenido ul{
+      margin:0;
+      padding-left:20px;
+    }
+
+    .contenido li{
+      margin:9px 0;
+    }
+
+    .contenido li::marker{
+      color:#ff6d00;
+    }
+
+    .comunicados > summary{
+      background:linear-gradient(90deg,#ef6c00,#fb8c00);
+    }
+
+    .calendario > summary{
+      background:linear-gradient(90deg,#00695c,#00897b);
+    }
+
+    .info-card{
+  background:#ffffff;
+  border:1px solid #ddd;
+  border-left:6px solid #ff6d00;
+  border-radius:8px;
+  padding:14px;
+  margin:12px auto;
+  box-shadow:0 3px 8px rgba(0,0,0,.12);
+  line-height:1.6;
+  max-width:700px;
+  width:100%;
+}
+
+    .info-card h3{
+      margin:0 0 8px;
+      color:#333;
+    }
+
+    .info-card a{
+      display:inline-block;
+      margin-top:8px;
+      background:#f45100;
+      color:white;
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:6px;
+      font-weight:900;
+    }
+
+    .tabla-web{
+      width:100%;
+      border-collapse:collapse;
+      background:white;
+      margin:12px 0;
+      font-size:15px;
+    }
+
+    .tabla-web th{
+      background:#333;
+      color:white;
+      padding:10px;
+      text-align:left;
+    }
+
+    .tabla-web td{
+      padding:10px;
+      border-bottom:1px solid #ddd;
+    }
+
+    @media(max-width:768px){
+      .tabla-web,
+      .tabla-web thead,
+      .tabla-web tbody,
+      .tabla-web th,
+      .tabla-web td,
+      .tabla-web tr{
+        display:block;
+      }
+
+      .tabla-web thead{
+        display:none;
+      }
+
+      .tabla-web tr{
+        margin-bottom:12px;
+        border:1px solid #ddd;
+        border-radius:8px;
+        overflow:hidden;
+      }
+
+      .tabla-web td{
+        display:flex;
+        justify-content:space-between;
+        gap:10px;
+        text-align:right;
+      }
+
+      .tabla-web td::before{
+        content:attr(data-label);
+        font-weight:bold;
+        color:#333;
+        text-align:left;
+      }
+    }
+
+    .continuidad > summary{
+  background:linear-gradient(90deg,#e65100,#ff9800);
+}
+
+  .continuidad .anio > summary{
+  background:linear-gradient(90deg,#2e7d32,#43a047);
+}
+    .actividad-card{
+     background:#fff8e1;
+     border:1px solid #ffcc80;
+      border-radius:8px;
+      padding:14px;
+      margin:12px;
+      box-shadow:0 3px 8px rgba(0,0,0,.12);
+      font-size:15px;
+      line-height:1.6;
+    }
+
+    .actividad-card p{
+      margin:6px 0;
+    }
+
+    .actividad-card a{
+      display:inline-block;
+      margin-top:8px;
+       background:#f57c00;
+      color:white;
+      text-decoration:none;
+      padding:9px 14px;
+      border-radius:6px;
+      font-weight:900;
+    }
+
+    .actividad-card a:hover{
+      background:#e65100;
+      transform:scale(1.03);
+    }
+
+    .mensaje-continuidad{
+      padding:18px;
+      margin:12px;
+      background:#fff3e0;
+      border-left:6px solid #ff9800;
+      border-radius:8px;
+      font-weight:bold;
+    }
+
+    .horarios > summary{
+      background:linear-gradient(90deg,#1565c0,#0d47a1);
+    }
+
+    .anio{
+      margin:12px;
+      border:1px solid #90caf9;
+      box-shadow:none;
+      border-radius:7px;
+    }
+
+    .anio > summary{
+      background:linear-gradient(90deg,#1565c0,#1e73dd);
+      padding:10px 14px;
+      font-size:18px;
+    }
+
+    .anio > summary::after{
+      content:"›";
+      font-size:20px;
+    }
+
+    .anio[open] > summary::after{
+      transform:rotate(90deg);
+    }
+
+    .cursos{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:18px;
+      padding:16px 28px;
+      background:#fff;
+    }
+
+    .curso{
+      display:block;
+      background:linear-gradient(180deg,#4f963f,#2e7d32);
+      color:white;
+      text-align:center;
+      text-decoration:none;
+      padding:11px 12px;
+      border-radius:6px;
+      font-weight:900;
+      box-shadow:0 3px 7px rgba(0,0,0,.25);
+      transition:.2s;
+    }
+
+    .curso:hover{
+      transform:scale(1.04);
+      background:linear-gradient(180deg,#66bb6a,#1b5e20);
+    }
+
+    .instagram-area{
+      text-align:center;
+    }
+
+    .instagram-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
+      color:white !important;
+      text-decoration:none;
+      padding:16px 42px;
+      border-radius:8px;
+      font-weight:900;
+      font-size:20px;
+      margin-top:10px;
+      box-shadow:0 5px 15px rgba(0,0,0,.25);
+      transition:.2s;
+    }
+
+    .instagram-btn:hover{
+      transform:scale(1.05);
+    }
+
+
+    .facebook-float{
+      position:fixed;
+      bottom:98px;
+      right:28px;
+      background:#1877F2;
+      color:white;
+      text-decoration:none;
+      padding:17px 28px;
+      border-radius:50px;
+      font-weight:900;
+      font-size:18px;
+      box-shadow:0 5px 18px rgba(0,0,0,.35);
+      z-index:999;
+    }
+
+    .biblioteca-float{
+      position:fixed;
+      bottom:168px;
+      right:28px;
+      background:linear-gradient(45deg,#2e7d32,#43a047);
+      color:white;
+      text-decoration:none;
+      padding:17px 28px;
+      border-radius:50px;
+      font-weight:900;
+      font-size:18px;
+      box-shadow:0 5px 18px rgba(0,0,0,.35);
+      z-index:999;
+    }
+
+    .facebook-float:hover,
+    .biblioteca-float:hover,
+    .instagram-float:hover{
+      transform:scale(1.05);
+    }
+
+    footer{
+      background:linear-gradient(90deg,#111,#222,#111);
+      color:white;
+      text-align:center;
+      padding:28px 20px;
+      font-size:16px;
+      line-height:1.8;
+    }
+
+    .instagram-float{
+      position:fixed;
+      bottom:28px;
+      right:28px;
+      background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
+      color:white;
+      text-decoration:none;
+      padding:17px 28px;
+      border-radius:50px;
+      font-weight:900;
+      font-size:18px;
+      box-shadow:0 5px 18px rgba(0,0,0,.35);
+      z-index:999;
+    }
+
+    @media(max-width:768px){
+      header{
+        min-height:230px;
+        padding:30px 12px;
+      }
+
+      header::before{
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        width:230px;
+        height:230px;
+        opacity:.13;
+      }
+
+      .titulo-header h1{
+        font-size:48px;
+        letter-spacing:4px;
+      }
+
+      .titulo-header h2{
+        font-size:24px;
+      }
+
+      .titulo-header p{
+        font-size:16px;
+      }
+
+      main{
+        padding:20px 10px;
+      }
+
+      summary{
+        font-size:19px;
+        padding:14px 15px;
+      }
+
+      .contenido{
+        padding:16px;
+        font-size:15px;
+      }
+
+      .cursos{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+        padding:12px;
+      }
+
+      .curso{
+        font-size:14px;
+        padding:11px 6px;
+      }
+
+      .instagram-float{
+        right:14px;
+        bottom:14px;
+        padding:13px 18px;
+        font-size:15px;
+      }
+
+
+      .facebook-float{
+        right:14px;
+        bottom:70px;
+        padding:13px 18px;
+        font-size:15px;
+      }
+
+      .biblioteca-float{
+        right:14px;
+        bottom:126px;
+        padding:13px 18px;
+        font-size:15px;
+      }
+
+    }
+
+    @media(max-width:420px){
+      .cursos{
+        grid-template-columns:1fr;
+      }
+
+      .titulo-header h1{
+        font-size:38px;
+      }
+    }
+    #comunicados-contenedor{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+#calendario-contenedor{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+@media(max-width:768px){
+
+  .info-card{
+    width:95%;
+    margin:10px auto;
+  }
+
+}
+.footer-mapa{
+  width:100%;
+  max-width:900px;
+  margin:20px auto;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 4px 15px rgba(0,0,0,.25);
+}
+
+.footer-mapa iframe{
+  width:100%;
+  height:300px;
+  border:0;
+}
+
+@media(max-width:768px){
+
+  .footer-mapa iframe{
+    height:220px;
+  }
+
+}
+
+/* ===== MENÚ SUPERIOR TIPO ABC ===== */
+.top-menu{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
+  border-bottom:4px solid #ff9800;
+}
+.menu-wrap{
+  max-width:1180px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+}
+.menu-logo{
+  font-weight:900;
+  color:#e65100;
+  letter-spacing:.5px;
+  white-space:nowrap;
+}
+.menu-toggle{
+  display:none;
+  border:0;
+  background:#e65100;
+  color:white;
+  font-size:25px;
+  width:46px;
+  height:42px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.menu-list{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.menu-item{
+  position:relative;
+}
+.menu-link,
+.submenu-btn{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  min-height:58px;
+  padding:0 17px;
+  color:#00695c;
+  background:transparent;
+  border:0;
+  text-decoration:none;
+  font-size:18px;
+  font-weight:900;
+  cursor:pointer;
+  font-family:Arial, Helvetica, sans-serif;
+}
+.menu-link:hover,
+.submenu-btn:hover,
+.menu-item.active > .submenu-btn{
+  color:#e65100;
+  background:#fff3e0;
+}
+.flechita{
+  transition:.25s;
+}
+.menu-item.active .flechita{
+  transform:rotate(180deg);
+}
+.submenu{
+  position:absolute;
+  top:58px;
+  left:0;
+  min-width:250px;
+  background:#fff;
+  border-radius:0 0 12px 12px;
+  box-shadow:0 8px 20px rgba(0,0,0,.22);
+  overflow:hidden;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(12px);
+  transition:.25s;
+}
+.menu-item.active .submenu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.submenu a{
+  display:block;
+  padding:13px 17px;
+  color:#333;
+  text-decoration:none;
+  font-weight:700;
+  border-bottom:1px solid #eee;
+}
+.submenu a:hover{
+  background:linear-gradient(90deg,#ff9800,#ffd54f);
+  color:#111;
+  padding-left:24px;
+}
+
+@media(max-width:768px){
+  .menu-wrap{
+    min-height:62px;
+  }
+  .menu-toggle{
+    display:block;
+  }
+  .menu-list{
+    position:absolute;
+    top:62px;
+    left:0;
+    right:0;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    background:#fff;
+    border-top:1px solid #eee;
+    max-height:calc(100vh - 62px);
+    overflow:auto;
+  }
+  .top-menu.menu-open .menu-list{
+    display:flex;
+    animation:bajarMenu .22s ease;
+  }
+  @keyframes bajarMenu{
+    from{opacity:0; transform:translateY(-10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .menu-link,
+  .submenu-btn{
+    width:100%;
+    min-height:52px;
+    justify-content:space-between;
+    padding:0 20px;
+    border-bottom:1px solid #eee;
+    font-size:17px;
+  }
+  .submenu{
+    position:static;
+    min-width:100%;
+    display:none;
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    box-shadow:none;
+    border-radius:0;
+    background:#fff7df;
+  }
+  .menu-item.active .submenu{
+    display:block;
+  }
+  .submenu a{
+    padding:13px 32px;
+  }
+}
+
+  
+
+/* ===== HORARIOS ESTILO TARJETAS INSTITUCIONALES ===== */
+.horarios{
+  border:0;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+  border-radius:18px;
+  background:#fff;
+}
+
+.horarios > summary{
+  display:none;
+}
+
+.horarios-panel{
+  display:grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap:28px;
+  padding:30px;
+  background:linear-gradient(90deg,#fff8e7,#ffffff);
+}
+
+.horarios-info{
+  background:#fffaf0;
+  border-radius:18px;
+  padding:32px 28px;
+  border:1px solid #f1e3c5;
+  box-shadow:inset 0 0 30px rgba(255,152,0,.08);
+}
+
+.horarios-titulo{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.horarios-icono{
+  font-size:54px;
+  color:#f45100;
+}
+
+.horarios-info h2{
+  margin:0;
+  font-size:34px;
+  color:#f45100;
+  font-weight:900;
+  letter-spacing:1px;
+  line-height:1;
+}
+
+.horarios-info h3{
+  margin:4px 0 0;
+  color:#0b7a3b;
+  font-size:23px;
+  font-weight:900;
+}
+
+.horarios-info p{
+  font-size:18px;
+  line-height:1.5;
+  margin:22px 0;
+  color:#444;
+}
+
+.horarios-beneficios{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.horarios-beneficios li{
+  margin:15px 0;
+  font-size:17px;
+  font-weight:700;
+  color:#333;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+}
+
+.horarios-beneficios li::before{
+  content:"✓";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:23px;
+  height:23px;
+  border-radius:50%;
+  background:#16843a;
+  color:white;
+  font-weight:900;
+  font-size:14px;
+}
+
+.horarios-cursos-area{
+  background:#ffffff;
+  border-radius:18px;
+  padding:28px;
+}
+
+.titulo-cursos{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  color:#13813b;
+  font-weight:900;
+  font-size:28px;
+  margin-bottom:4px;
+}
+
+.titulo-cursos::before,
+.titulo-cursos::after{
+  content:"";
+  height:2px;
+  width:90px;
+  background:#7bbf8a;
+}
+
+.subtitulo-cursos{
+  text-align:center;
+  font-size:13px;
+  color:#444;
+  font-weight:700;
+  margin-bottom:22px;
+}
+
+.grid-anios{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.anio-card{
+  position:relative;
+}
+
+.anio-btn{
+  width:100%;
+  min-height:118px;
+  border:1px solid #eee;
+  border-radius:9px;
+  background:#fff;
+  box-shadow:0 6px 14px rgba(0,0,0,.12);
+  cursor:pointer;
+  font-family:Arial, Helvetica, sans-serif;
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  position:relative;
+  overflow:hidden;
+}
+
+.anio-btn::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:6px;
+  background:#14823b;
+}
+
+.anio-card:nth-child(even) .anio-btn::after{
+  background:#ff6d00;
+}
+
+.anio-btn:hover,
+.anio-card.activo .anio-btn{
+  transform:translateY(-5px);
+  box-shadow:0 12px 24px rgba(0,0,0,.18);
+}
+
+.anio-personas{
+  font-size:24px;
+}
+
+.anio-numero{
+  font-size:38px;
+  line-height:1;
+  font-weight:900;
+  color:#13813b;
+}
+
+.anio-card:nth-child(even) .anio-numero{
+  color:#f45100;
+}
+
+.anio-texto{
+  font-size:16px;
+  font-weight:900;
+  color:#0b7a3b;
+}
+
+.anio-card:nth-child(even) .anio-texto{
+  color:#f45100;
+}
+
+.horarios-desglose{
+  display:none;
+  grid-column:1 / -1;
+  background:#fff7ec;
+  border:1px solid #ffd29c;
+  border-radius:14px;
+  padding:16px;
+  animation:abrirHorarios .25s ease;
+}
+
+.horarios-desglose.activo{
+  display:block;
+}
+
+@keyframes abrirHorarios{
+  from{opacity:0; transform:translateY(-8px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.horarios-desglose h4{
+  margin:0 0 12px;
+  text-align:center;
+  color:#333;
+  font-size:20px;
+}
+
+.links-horarios{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:12px;
+}
+
+.link-horario{
+  display:block;
+  text-align:center;
+  background:linear-gradient(180deg,#ffffff,#fff3e0);
+  border:1px solid #ffd29c;
+  color:#333;
+  text-decoration:none;
+  border-radius:10px;
+  padding:13px 10px;
+  font-weight:900;
+  box-shadow:0 3px 8px rgba(0,0,0,.12);
+  transition:.2s;
+}
+
+.link-horario:hover{
+  background:linear-gradient(180deg,#ff9800,#f45100);
+  color:white;
+  transform:scale(1.03);
+}
+
+@media(max-width:850px){
+  .horarios-panel{
+    grid-template-columns:1fr;
+    padding:18px;
+  }
+  .grid-anios{
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+  }
+  .horarios-info h2{
+    font-size:30px;
+  }
+}
+
+@media(max-width:430px){
+  .grid-anios{
+    grid-template-columns:1fr;
+  }
+  .horarios-cursos-area,
+  .horarios-info{
+    padding:20px 16px;
+  }
+  .titulo-cursos::before,
+  .titulo-cursos::after{
+    width:35px;
+  }
+}
+
+
+/* ===== AJUSTE RESPONSIVE HORARIOS: DESPLIEGA EN EL MISMO BOTÓN ===== */
+.grid-anios{
+  align-items:start;
+}
+
+.anio-card.activo{
+  grid-column:1 / -1;
+  background:#fff7ec;
+  border:1px solid #ffd29c;
+  border-radius:14px;
+  padding:12px;
+  animation:abrirHorarios .25s ease;
+}
+
+.anio-card.activo .anio-btn{
+  max-width:180px;
+  margin:0 auto 12px;
+}
+
+.horarios-desglose{
+  grid-column:auto;
+  margin-top:10px;
+  width:100%;
+}
+
+@media(max-width:850px){
+  .horarios-panel{
+    grid-template-columns:1fr;
+  }
+
+  .grid-anios{
+    grid-template-columns:repeat(3,1fr) !important;
+    gap:12px;
+  }
+
+  .anio-btn{
+    min-height:98px;
+  }
+
+  .anio-personas{
+    font-size:19px;
+  }
+
+  .anio-numero{
+    font-size:31px;
+  }
+
+  .anio-texto{
+    font-size:13px;
+  }
+
+  .anio-card.activo{
+    grid-column:1 / -1;
+  }
+
+  .links-horarios{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:430px){
+  .grid-anios{
+    grid-template-columns:repeat(3,1fr) !important;
+    gap:8px;
+  }
+
+  .horarios-cursos-area{
+    padding:16px 8px;
+  }
+
+  .anio-btn{
+    min-height:88px;
+    padding:6px 3px;
+  }
+
+  .anio-numero{
+    font-size:27px;
+  }
+
+  .anio-texto{
+    font-size:11px;
+  }
+
+  .link-horario{
+    font-size:12px;
+    padding:11px 6px;
+  }
+}
+
+
+/* ===== TABLA DE POSICIONES ESTUDIANTINA ===== */
+.posiciones > summary{
+  background:linear-gradient(90deg,#111,#e65100,#ff9800);
+}
+
+.posiciones-intro{
+  text-align:center;
+  background:linear-gradient(135deg,#fff7e6,#ffffff);
+  border:1px solid #ffd29c;
+  border-radius:16px;
+  padding:18px;
+  margin:10px 0 22px;
+}
+
+.posiciones-intro h2{
+  margin:0 0 8px;
+  color:#e65100;
+  font-size:30px;
+  font-weight:900;
+}
+
+.posiciones-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.grupo-ranking{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #eee;
+  box-shadow:0 8px 22px rgba(0,0,0,.16);
+}
+
+.grupo-ranking h3{
+  margin:0;
+  padding:15px;
+  text-align:center;
+  color:white;
+  font-size:22px;
+  background:linear-gradient(90deg,#2e7d32,#43a047);
+}
+
+.grupo-ranking:nth-child(2) h3{
+  background:linear-gradient(90deg,#ef6c00,#ff9800);
+}
+
+.grupo-ranking:nth-child(3) h3{
+  background:linear-gradient(90deg,#c62828,#ef5350);
+}
+
+.podio{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  padding:14px;
+  background:#fff8e1;
+}
+
+.podio-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  background:white;
+  border-radius:12px;
+  padding:12px;
+  box-shadow:0 3px 10px rgba(0,0,0,.12);
+  border-left:7px solid #ddd;
+}
+
+.podio-card.oro{border-left-color:#fbc02d;}
+.podio-card.plata{border-left-color:#9e9e9e;}
+.podio-card.bronce{border-left-color:#cd7f32;}
+
+.podio-medalla{
+  font-size:30px;
+  min-width:38px;
+  text-align:center;
+}
+
+.podio-curso{
+  font-weight:900;
+  color:#222;
+  font-size:19px;
+  flex:1;
+}
+
+.podio-puntos{
+  background:#111;
+  color:white;
+  padding:7px 11px;
+  border-radius:999px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.tabla-ranking{
+  width:100%;
+  border-collapse:collapse;
+  font-size:15px;
+}
+
+.tabla-ranking th{
+  background:#222;
+  color:white;
+  padding:10px;
+  text-align:center;
+}
+
+.tabla-ranking td{
+  padding:10px;
+  border-bottom:1px solid #eee;
+  text-align:center;
+  font-weight:700;
+}
+
+.tabla-ranking td:nth-child(3){
+  text-align:left;
+  font-weight:900;
+}
+
+.mensaje-posiciones{
+  margin:14px;
+  padding:14px;
+  background:#fff3e0;
+  border-left:6px solid #ff9800;
+  border-radius:10px;
+  font-weight:800;
+  line-height:1.5;
+}
+
+@media(max-width:950px){
+  .posiciones-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:520px){
+  .podio-card{
+    padding:10px;
+  }
+  .podio-curso{
+    font-size:16px;
+  }
+  .tabla-ranking{
+    font-size:13px;
+  }
+  .tabla-ranking th,
+  .tabla-ranking td{
+    padding:8px 5px;
+  }
+}
+
+  
+
+/* ===== ESTUDIANTINA 2026 - ESTILO FLASH / AESTHETIC ===== */
+.posiciones{
+  border:0 !important;
+  border-radius:24px !important;
+  overflow:hidden !important;
+  box-shadow:0 16px 40px rgba(0,0,0,.22) !important;
+  background:#fff7e8 !important;
+}
+.posiciones > summary{
+  background:linear-gradient(90deg,#f45100,#ff9800,#fdd835,#2e7d32) !important;
+  color:white !important;
+  text-shadow:2px 2px 0 rgba(0,0,0,.28);
+  letter-spacing:.5px;
+}
+.posiciones .contenido{
+  padding:0 !important;
+  background:radial-gradient(circle at top,#fff8dc 0,#fff4e1 38%,#ffffff 100%);
+}
+.posiciones-hero{
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  padding:34px 18px 28px;
+  color:white;
+  background:
+    radial-gradient(circle at center,rgba(255,193,7,.38),transparent 30%),
+    linear-gradient(135deg,#060606 0%,#1a1a1a 45%,#071b11 100%);
+  border-bottom:6px solid #ffca28;
+}
+.posiciones-hero::before,
+.posiciones-hero::after{
+  content:"";
+  position:absolute;
+  inset:-20px;
+  background-image:
+    radial-gradient(circle,#ffca28 0 3px,transparent 4px),
+    radial-gradient(circle,#43a047 0 3px,transparent 4px),
+    radial-gradient(circle,#ff6d00 0 3px,transparent 4px);
+  background-size:85px 85px,115px 115px,145px 145px;
+  animation:confetiCaida 14s linear infinite;
+  opacity:.75;
+  pointer-events:none;
+}
+.posiciones-hero::after{animation-duration:22s; opacity:.45; transform:rotate(12deg);}
+@keyframes confetiCaida{from{background-position:0 -120px,20px -80px,50px -160px;}to{background-position:0 420px,20px 520px,50px 640px;}}
+.posiciones-hero > *{position:relative; z-index:1;}
+.etiqueta-estudiantina{
+  display:inline-block;
+  background:#2e7d32;
+  color:#b6ff2e;
+  font-weight:900;
+  letter-spacing:2px;
+  padding:8px 18px;
+  border-radius:999px;
+  box-shadow:0 0 18px rgba(76,175,80,.55);
+}
+.posiciones-hero h2{
+  margin:12px 0 0;
+  font-family:Arial Black, Impact, sans-serif;
+  font-size:clamp(34px,6vw,72px);
+  line-height:.95;
+  color:#fff;
+  text-transform:uppercase;
+  text-shadow:0 4px 0 #d84315,0 0 20px rgba(255,152,0,.9);
+  transform:skew(-7deg);
+}
+.copa-grande{
+  font-size:72px;
+  margin:12px 0 2px;
+  filter:drop-shadow(0 0 18px rgba(255,215,0,.9));
+  animation:copaPulso 1.8s ease-in-out infinite;
+}
+@keyframes copaPulso{0%,100%{transform:scale(1);}50%{transform:scale(1.08) rotate(-2deg);}}
+.posiciones-hero p{
+  margin:8px auto 0;
+  max-width:720px;
+  color:#fff7d1;
+  font-size:18px;
+  font-weight:800;
+}
+.posiciones-grid{
+  max-width:1260px;
+  margin:0 auto;
+  padding:22px;
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px !important;
+  align-items:start;
+}
+.grupo-ranking{
+  border:0 !important;
+  border-radius:22px !important;
+  background:rgba(255,255,255,.95) !important;
+  box-shadow:0 12px 30px rgba(0,0,0,.18) !important;
+  overflow:hidden !important;
+  transition:.25s;
+}
+.grupo-ranking:hover{transform:translateY(-5px); box-shadow:0 18px 36px rgba(0,0,0,.24) !important;}
+.grupo-ranking h3{
+  font-size:22px !important;
+  padding:16px !important;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+.grupo-subtitulo{
+  display:block;
+  font-size:13px;
+  font-weight:800;
+  opacity:.92;
+  margin-top:3px;
+}
+.podio{
+  display:grid !important;
+  grid-template-columns:1fr 1.15fr 1fr !important;
+  gap:10px !important;
+  align-items:end !important;
+  padding:18px 14px 14px !important;
+  min-height:210px;
+  background:linear-gradient(180deg,#fff8df,#ffffff) !important;
+}
+.podio-card{
+  position:relative;
+  flex-direction:column !important;
+  justify-content:flex-end !important;
+  text-align:center;
+  min-height:132px;
+  padding:16px 8px 12px !important;
+  border-left:0 !important;
+  border-radius:18px 18px 10px 10px !important;
+  box-shadow:inset 0 0 22px rgba(255,255,255,.35),0 8px 18px rgba(0,0,0,.22) !important;
+}
+.podio-card.oro{order:2; min-height:185px; background:linear-gradient(180deg,#fff176,#ffca28,#f57f17) !important; animation:brilloOro 2.4s infinite;}
+.podio-card.plata{order:1; min-height:145px; background:linear-gradient(180deg,#fafafa,#cfcfcf,#9e9e9e) !important;}
+.podio-card.bronce{order:3; min-height:126px; background:linear-gradient(180deg,#ffcc80,#cd7f32,#8d5524) !important;}
+@keyframes brilloOro{0%,100%{box-shadow:0 0 16px rgba(255,193,7,.45),0 8px 18px rgba(0,0,0,.22);}50%{box-shadow:0 0 34px rgba(255,214,0,.9),0 8px 18px rgba(0,0,0,.22);}}
+.podio-medalla{font-size:42px !important; line-height:1; filter:drop-shadow(0 3px 3px rgba(0,0,0,.25));}
+.podio-curso{font-size:clamp(17px,2vw,25px) !important; color:#111 !important; margin-top:6px;}
+.podio-puntos{margin-top:8px; background:#111 !important; font-size:14px;}
+.tabla-ranking{font-size:15px !important;}
+.tabla-ranking thead th{background:#171717 !important; color:#fff !important;}
+.tabla-ranking tbody tr:nth-child(1){background:#fff176 !important;}
+.tabla-ranking tbody tr:nth-child(2){background:#eeeeee !important;}
+.tabla-ranking tbody tr:nth-child(3){background:#ffd2a6 !important;}
+.tabla-ranking tbody tr:hover{background:#fff3e0 !important; transform:scale(1.01);}
+.frase-estudiantina{
+  max-width:1260px;
+  margin:0 auto 24px;
+  padding:20px;
+  text-align:center;
+  font-size:24px;
+  font-weight:900;
+  background:white;
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+  color:#111;
+}
+.frase-estudiantina span{color:#e65100;}
+@media(max-width:1000px){.posiciones-grid{grid-template-columns:1fr !important;}.podio{max-width:620px;margin:auto;}}
+@media(max-width:520px){.posiciones-hero{padding:26px 10px 22px}.copa-grande{font-size:54px}.posiciones-grid{padding:12px}.podio{gap:6px !important; min-height:185px}.podio-card{padding:12px 4px 10px !important}.podio-medalla{font-size:31px !important}.podio-puntos{font-size:12px;padding:6px 8px}.frase-estudiantina{font-size:18px;margin:8px 12px 18px}.tabla-ranking{font-size:13px !important}}
+
+  </style>
+</head>
+
+<body>
+
+<header class="header-banner">
+    <img src="banner-header.png" alt="E.E.S. N°4">
+</header>
+<nav class="top-menu" id="topMenu">
+  <div class="menu-wrap">
+    <div class="menu-logo">E.E.S. N° 4</div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+    <ul class="menu-list">
+      <li class="menu-item"><a class="menu-link" href="#inicio">Inicio</a></li>
+
+      <li class="menu-item has-submenu">
+        <button class="submenu-btn" type="button">Institucional <span class="flechita">▼</span></button>
+        <div class="submenu">
+          <a href="#institucional">Historia institucional</a>
+          <a href="#institucional">Proyecto institucional</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#instagram">Instagram oficial</a>
+        </div>
+      </li>
+
+      <li class="menu-item has-submenu">
+        <button class="submenu-btn" type="button">Estudiantes <span class="flechita">▼</span></button>
+        <div class="submenu">
+          <a href="#estudiantes">Inscripciones</a>
+          <a href="#estudiantes">Mesas de examen</a>
+          <a href="#horarios">Horarios escolares</a>
+          <a href="#continuidad">Continuidad pedagógica</a>
+        </div>
+      </li>
+
+      <li class="menu-item"><a class="menu-link" href="#calendario">Calendario escolar</a></li>
+      <li class="menu-item"><a class="menu-link" href="#radio">Radio escolar</a></li>
+      <li class="menu-item"><a class="menu-link" href="#posiciones">Posiciones</a></li>
+      <li class="menu-item"><a class="menu-link" href="#cooperadora">Cooperadora</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="inicio">
+  
+  <details class="comunicados">
+    <summary>Comunicados</summary>
+    <div class="contenido">
+      <p>Avisos y comunicados cargados desde Google Sheets.</p>
+    </div>
+    <div id="comunicados-contenedor">
+      <div class="mensaje-continuidad">Cargando comunicados...</div>
+    </div>
+  </details>
+
+
+  <details id="posiciones" class="posiciones">
+    <summary>🏆 Tabla de posiciones - Estudiantina</summary>
+    <div class="contenido">
+      <div class="posiciones-hero">
+        <div class="etiqueta-estudiantina">ESTUDIANTINA 2026</div>
+        <h2>Tabla de Posiciones</h2>
+        <div class="copa-grande">🏆</div>
+        <p>Seguí en vivo cómo va cada grupo en todas las disciplinas.</p>
+      </div>
+      <div class="posiciones-grid">
+        <div class="grupo-ranking">
+          <h3>🟢 Grupo 1 <span class="grupo-subtitulo">1° y 2° año</span></h3>
+          <div id="ranking-grupo-1"><div class="mensaje-posiciones">Cargando Grupo 1...</div></div>
+        </div>
+        <div class="grupo-ranking">
+          <h3>🟡 Grupo 2 <span class="grupo-subtitulo">3° y 4° año</span></h3>
+          <div id="ranking-grupo-2"><div class="mensaje-posiciones">Cargando Grupo 2...</div></div>
+        </div>
+        <div class="grupo-ranking">
+          <h3>🔴 Grupo 3 <span class="grupo-subtitulo">5° y 6° año</span></h3>
+          <div id="ranking-grupo-3"><div class="mensaje-posiciones">Cargando Grupo 3...</div></div>
+        </div>
+      </div>
+      <div class="frase-estudiantina">⭐ ¡Todos suman, todos participan, <span>todos ganamos!</span> 💚 🎉</div>
+    </div>
+  </details>
+
+  
+      <div class="horarios-cursos-area">
+        <div class="titulo-cursos">📅 HORARIOS</div>
+        <div class="subtitulo-cursos">Seleccioná tu año para acceder a los horarios</div>
+
+        <div class="grid-anios">
+          <div class="anio-card">
+            <button class="anio-btn" type="button" data-anio="1">
+              <span class="anio-personas">👥</span>
+              <span class="anio-numero">1°</span>
+              <span class="anio-texto">AÑO</span>
+            </button>
+            <div class="horarios-desglose" id="anio-1">
+              <h4>Horarios de 1° Año</h4>
+              <div class="links-horarios">
+                <a class="link-horario" href="./horarios/1_a.pdf" target="_blank">1° A</a>
+                <a class="link-horario" href="./horarios/1_b.pdf" target="_blank">1° B</a>
+                <a class="link-horario" href="./horarios/1_c.pdf" target="_blank">1° C</a>
+                <a class="link-horario" href="./horarios/1_d.pdf" target="_blank">1° D</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="anio-card">
+            <button class="anio-btn" type="button" data-anio="2">
+              <span class="anio-personas">👥</span>
+              <span class="anio-numero">2°</span>
+              <span class="anio-texto">AÑO</span>
+            </button>
+            <div class="horarios-desglose" id="anio-2">
+              <h4>Horarios de 2° Año</h4>
+              <div class="links-horarios">
+                <a class="link-horario" href="./horarios/2_a.pdf" target="_blank">2° A</a>
+                <a class="link-horario" href="./horarios/2_b.pdf" target="_blank">2° B</a>
+                <a class="link-horario" href="./horarios/2_c.pdf" target="_blank">2° C</a>
+                <a class="link-horario" href="./horarios/2_d.pdf" target="_blank">2° D</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="anio-card">
+            <button class="anio-btn" type="button" data-anio="3">
+              <span class="anio-personas">👥</span>
+              <span class="anio-numero">3°</span>
+              <span class="anio-texto">AÑO</span>
+            </button>
+            <div class="horarios-desglose" id="anio-3">
+              <h4>Horarios de 3° Año</h4>
+              <div class="links-horarios">
+                <a class="link-horario" href="./horarios/3_a.pdf" target="_blank">3° A</a>
+                <a class="link-horario" href="./horarios/3_b.pdf" target="_blank">3° B</a>
+                <a class="link-horario" href="./horarios/3_c.pdf" target="_blank">3° C</a>
+                <a class="link-horario" href="./horarios/3_d.pdf" target="_blank">3° D</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="anio-card">
+            <button class="anio-btn" type="button" data-anio="4">
+              <span class="anio-personas">👥</span>
+              <span class="anio-numero">4°</span>
+              <span class="anio-texto">AÑO</span>
+            </button>
+            <div class="horarios-desglose" id="anio-4">
+              <h4>Horarios de 4° Año</h4>
+              <div class="links-horarios">
+                <a class="link-horario" href="./horarios/4_1_comunicaciones.pdf" target="_blank">4° 1° Comunicaciones</a>
+                <a class="link-horario" href="./horarios/4_2_comunicaciones.pdf" target="_blank">4° 2° Comunicaciones</a>
+                <a class="link-horario" href="./horarios/4_3_economia.pdf" target="_blank">4° 3° Economía</a>
+                <a class="link-horario" href="./horarios/4_4_cs_naturales.pdf" target="_blank">4° 4° Cs. Naturales</a>
+                <a class="link-horario" href="./horarios/4_5_cs_sociales.pdf" target="_blank">4° 5° Cs. Sociales</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="anio-card">
+            <button class="anio-btn" type="button" data-anio="5">
+              <span class="anio-personas">👥</span>
+              <span class="anio-numero">5°</span>
+              <span class="anio-texto">AÑO</span>
+            </button>
+            <div class="horarios-desglose" id="anio-5">
+              <h4>Horarios de 5° Año</h4>
+              <div class="links-horarios">
+                <a class="link-horario" href="./horarios/5_1_comunicaciones.pdf" target="_blank">5° 1° Comunicaciones</a>
+                <a class="link-horario" href="./horarios/5_2_comunicaciones.pdf" target="_blank">5° 2° Comunicaciones</a>
+                <a class="link-horario" href="./horarios/5_3_economia.pdf" target="_blank">5° 3° Economía</a>
+                <a class="link-horario" href="./horarios/5_4_cs_naturales.pdf" target="_blank">5° 4° Cs. Naturales</a>
+                <a class="link-horario" href="./horarios/5_5_cs_sociales.pdf" target="_blank">5° 5° Cs. Sociales</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="anio-card">
+            <button class="anio-btn" type="button" data-anio="6">
+              <span class="anio-personas">👥</span>
+              <span class="anio-numero">6°</span>
+              <span class="anio-texto">AÑO</span>
+            </button>
+            <div class="horarios-desglose" id="anio-6">
+              <h4>Horarios de 6° Año</h4>
+              <div class="links-horarios">
+                <a class="link-horario" href="./horarios/6_1_comunicaciones.pdf" target="_blank">6° 1° Comunicaciones</a>
+                <a class="link-horario" href="./horarios/6_2_comunicaciones.pdf" target="_blank">6° 2° Comunicaciones</a>
+                <a class="link-horario" href="./horarios/6_3_economia.pdf" target="_blank">6° 3° Economía</a>
+                <a class="link-horario" href="./horarios/6_4_cs_naturales.pdf" target="_blank">6° 4° Cs. Naturales</a>
+                <a class="link-horario" href="./horarios/6_5_cs_sociales.pdf" target="_blank">6° 5° Cs. Sociales</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </details>
+
+  <details id="continuidad" class="continuidad" open>
+    <summary>📘 Continuidad Pedagógica</summary>
+    <div class="contenido">
+      <p>Las actividades se cargan automáticamente desde una planilla de Google Sheets.</p>
+      <p>La planilla debe tener estas columnas: <strong>Curso, Profesor, Materia, FechaSubida, FechaEntrega, LinkDrive</strong>.</p>
+    </div>
+
+    <div id="continuidad-contenedor">
+      <div class="mensaje-continuidad">Cargando actividades...</div>
+    </div>
+  </details>
+
+
+
+
+
+
+  <details id="radio">
+    <summary>📻 Radio Escolar FM 106.1</summary>
+    <div class="contenido">
+      <p>La Escuela Secundaria N° 4 de San Bernardo es parte de la Red de Radios Escolares con Radio CAJ. La radio escolar fortalece la participación de los estudiantes y la comunicación institucional.</p>
+      <P>Asimismo, la radio escolar tiene programación las 24 horas, realizada íntegramente por sus estudiantes.<P>
+      <p><strong>RADIO FM 106.1</strong></p>
+    </div>
+  </details>
+
+  
+
+  <details id="instagram" open>
+    <summary>📸 Instagram Oficial</summary>
+    <div class="contenido instagram-area">
+      <p>Seguinos para enterarte de todas las novedades, actividades y proyectos de la escuela.</p>
+      <a class="instagram-btn" href="https://www.instagram.com/ees4lacosta/" target="_blank">📸 @ees4lacosta</a>
+    </div>
+  </details>
+
+ 
+
+</main>
+
+<footer>
+
+  <h3>📍 E.E.S. N° 4 "Francisco P. Moreno"</h3>
+
+  <p>San Bernardo - Partido de La Costa</p>
+
+  <div class="footer-mapa">
+
+    <iframe
+      src="https://www.google.com/maps?q=Escuela+4+San+Bernardo&output=embed"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+
+  <p style="margin-top:15px;">
+    <a href="https://www.google.com/maps/place/Escuela+4+San+Benardo/"
+       target="_blank"
+       style="color:#ffcc80;font-weight:bold;">Abrir ubicación en Google Maps
+    </a>
+  </p>
+
+  <p style="margin-top:20px;">
+    © 2026 - Todos los derechos reservados.
+  </p>
+
+</footer>
+
+
+<a href="https://drive.google.com/drive/folders/10KpCBLeD7ukky7QTNTLy0uJ7K8tx70gF" target="_blank" class="biblioteca-float">📚 Biblioteca</a>
+<a href="https://www.facebook.com/ees4lacosta" target="_blank" class="facebook-float">📘 Facebook</a>
+
+<a href="https://www.instagram.com/ees4lacosta/" target="_blank" class="instagram-float">📸 Instagram</a>
+
+
+<script>
+/*
+IMPORTANTE:
+1) Crear una Google Sheets con estas columnas exactas:
+Curso | Profesor | Materia | FechaSubida | FechaEntrega | LinkDrive
+
+2) Publicar la hoja como CSV:
+Archivo > Compartir > Publicar en la web > elegir hoja > CSV
+
+3) Copiar el link CSV y pegarlo abajo donde dice PEGAR_ACA_LINK_CSV.
+*/
+
+const URL_SHEET = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJuhdMxF4tNz6CWDhDSeiDYRpGH9eY45tTbQ6GLZXuJLxG3TIQnHnGZl2bXPvUGajboVl71xJaMe3m/pub?gid=0&single=true&output=csv";
+
+const ORDEN_CURSOS = [
+  "1° A","1° B","1° C","1° D",
+  "2° A","2° B","2° C","2° D",
+  "3° A","3° B","3° C","3° D",
+  "4° 1° Comunicaciones","4° 2° Comunicaciones","4° 3° Economía","4° 4° Cs. Naturales","4° 5° Cs. Sociales",
+  "5° 1° Comunicaciones","5° 2° Comunicaciones","5° 3° Economía","5° 4° Cs. Naturales","5° 5° Cs. Sociales",
+  "6° 1° Comunicaciones","6° 2° Comunicaciones","6° 3° Economía","6° 4° Cs. Naturales","6° 5° Cs. Sociales"
+];
+
+function parseCSV(texto){
+  const filas = [];
+  let fila = [];
+  let valor = "";
+  let dentroComillas = false;
+
+  for(let i=0; i<texto.length; i++){
+    const char = texto[i];
+    const next = texto[i+1];
+
+    if(char === '"' && dentroComillas && next === '"'){
+      valor += '"';
+      i++;
+    }else if(char === '"'){
+      dentroComillas = !dentroComillas;
+    }else if(char === "," && !dentroComillas){
+      fila.push(valor.trim());
+      valor = "";
+    }else if((char === "\n" || char === "\r") && !dentroComillas){
+      if(valor || fila.length){
+        fila.push(valor.trim());
+        filas.push(fila);
+        fila = [];
+        valor = "";
+      }
+      if(char === "\r" && next === "\n") i++;
+    }else{
+      valor += char;
+    }
+  }
+
+  if(valor || fila.length){
+    fila.push(valor.trim());
+    filas.push(fila);
+  }
+
+  return filas;
+}
+
+function normalizar(texto){
+  return (texto || "").trim();
+}
+
+async function cargarContinuidad(){
+  const contenedor = document.getElementById("continuidad-contenedor");
+
+  if(URL_SHEET === "PEGAR_ACA_LINK_CSV"){
+    contenedor.innerHTML = `
+      <div class="mensaje-continuidad">
+        Falta pegar el link CSV de Google Sheets en la variable URL_SHEET.
+      </div>
+    `;
+    return;
+  }
+
+  try{
+    const respuesta = await fetch(URL_SHEET + '&t=' + new Date().getTime());
+    const texto = await respuesta.text();
+    const filas = parseCSV(texto);
+
+    if(filas.length <= 1){
+      contenedor.innerHTML = `<div class="mensaje-continuidad">No hay actividades cargadas.</div>`;
+      return;
+    }
+
+    const encabezados = filas[0].map(h => h.trim());
+    const datos = filas.slice(1);
+
+    const idxCurso = encabezados.indexOf("Curso");
+    const idxProfesor = encabezados.indexOf("Profesor");
+    const idxMateria = encabezados.indexOf("Materia");
+    const idxSubida = encabezados.indexOf("FechaSubida");
+    const idxEntrega = encabezados.indexOf("FechaEntrega");
+    const idxLink = encabezados.indexOf("LinkDrive");
+
+    const actividadesPorCurso = {};
+
+    datos.forEach(fila => {
+      const curso = normalizar(fila[idxCurso]);
+      const profesor = normalizar(fila[idxProfesor]);
+      const materia = normalizar(fila[idxMateria]);
+      const fechaSubida = normalizar(fila[idxSubida]);
+      const fechaEntrega = normalizar(fila[idxEntrega]);
+      const linkDrive = normalizar(fila[idxLink]);
+
+      if(!curso || !profesor || !materia) return;
+
+      if(!actividadesPorCurso[curso]){
+        actividadesPorCurso[curso] = [];
+      }
+
+      actividadesPorCurso[curso].push({
+        profesor,
+        materia,
+        fechaSubida,
+        fechaEntrega,
+        linkDrive
+      });
+    });
+
+    let htmlFinal = "";
+
+    ORDEN_CURSOS.forEach(curso => {
+      const actividades = actividadesPorCurso[curso];
+
+      if(actividades && actividades.length > 0){
+        let tarjetas = "";
+
+        actividades.forEach(act => {
+          tarjetas += `
+            <div class="actividad-card">
+              <p><strong>Profesor/a:</strong> ${act.profesor}</p>
+              <p><strong>Materia:</strong> ${act.materia}</p>
+              <p><strong>Fecha de subida:</strong> ${act.fechaSubida || "Sin completar"}</p>
+              <p><strong>Fecha de entrega por alumno:</strong> ${act.fechaEntrega || "Sin completar"}</p>
+              ${act.linkDrive ? `<a href="${act.linkDrive}" target="_blank">📂 Ver actividad en Drive</a>` : `<p><strong>Link Drive:</strong> Sin completar</p>`}
+            </div>
+          `;
+        });
+
+        htmlFinal += `
+          <details class="anio">
+            <summary>${curso}</summary>
+            ${tarjetas}
+          </details>
+        `;
+      }
+    });
+
+    if(!htmlFinal){
+      htmlFinal = `<div class="mensaje-continuidad">No hay actividades cargadas actualmente.</div>`;
+    }
+
+    contenedor.innerHTML = htmlFinal;
+
+  }catch(error){
+    contenedor.innerHTML = `
+      <div class="mensaje-continuidad">
+        No se pudieron cargar las actividades. Revisá que el link CSV de Google Sheets sea público.
+      </div>
+    `;
+  }
+}
+
+cargarContinuidad();
+</script>
+
+
+<script>
+/*
+==================================================
+PLANILLAS EXTRA PARA ADMINISTRAR LA WEB
+==================================================
+
+Para Comunicados y Calendario creá una hoja de Google Sheets, publicala como CSV
+y pegá el enlace correspondiente en cada variable.
+
+Columnas recomendadas:
+
+COMUNICADOS:
+Fecha | Destinatario | Mensaje
+
+CALENDARIO:
+Fecha | Evento | Descripcion
+*/
+
+const URL_COMUNICADOS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJuhdMxF4tNz6CWDhDSeiDYRpGH9eY45tTbQ6GLZXuJLxG3TIQnHnGZl2bXPvUGajboVl71xJaMe3m/pub?gid=1377339392&single=true&output=csv";
+const URL_CALENDARIO = "PEGAR_LINK_CSV_CALENDARIO";
+
+async function cargarCSVSimple(url){
+  const respuesta = await fetch(url + "&t=" + new Date().getTime());
+  const texto = await respuesta.text();
+  return parseCSV(texto);
+}
+
+function urlValida(url){
+  return url && !url.startsWith("PEGAR_LINK");
+}
+
+
+
+async function cargarComunicados(){
+  const contenedor = document.getElementById("comunicados-contenedor");
+
+  if(!urlValida(URL_COMUNICADOS)){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">Falta pegar el link CSV de Comunicados.</div>`;
+    return;
+  }
+
+  try{
+    const filas = await cargarCSVSimple(URL_COMUNICADOS);
+  const datos = filas.slice(1).reverse();
+
+    let htmlComunicados = "";
+
+    datos.forEach(fila => {
+      const fecha = fila[0] || "";
+      const destinatario = fila[1] || "";
+      const mensaje = fila[2] || "";
+
+      if(!mensaje) return;
+
+      htmlComunicados += `
+        <div class="info-card">
+          <h3>📢 Comunicado</h3>
+          <p><strong>Fecha:</strong> ${fecha}</p>
+          <p><strong>Destinatario:</strong> ${destinatario}</p>
+          <p>${mensaje}</p>
+        </div>
+      `;
+    });
+
+    contenedor.innerHTML = htmlComunicados || `<div class="mensaje-continuidad">No hay comunicados cargados.</div>`;
+  }catch(error){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">No se pudieron cargar los comunicados.</div>`;
+  }
+}
+
+
+
+async function cargarCalendario(){
+  const contenedor = document.getElementById("calendario-contenedor");
+
+  if(!urlValida(URL_CALENDARIO)){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">Falta pegar el link CSV de Calendario.</div>`;
+    return;
+  }
+
+  try{
+    const filas = await cargarCSVSimple(URL_CALENDARIO);
+    const datos = filas.slice(1);
+
+    let htmlCalendario = "";
+
+    datos.forEach(fila => {
+      const fecha = fila[0] || "";
+      const evento = fila[1] || "";
+      const descripcion = fila[2] || "";
+
+      if(!evento) return;
+
+      htmlCalendario += `
+        <div class="info-card">
+          <h3>📅 ${evento}</h3>
+          <p><strong>Fecha:</strong> ${fecha}</p>
+          <p>${descripcion}</p>
+        </div>
+      `;
+    });
+
+    contenedor.innerHTML = htmlCalendario || `<div class="mensaje-continuidad">No hay eventos cargados.</div>`;
+  }catch(error){
+    contenedor.innerHTML = `<div class="mensaje-continuidad">No se pudo cargar el calendario.</div>`;
+  }
+}
+
+cargarComunicados();
+cargarCalendario();
+</script>
+
+
+<script>
+const topMenu = document.getElementById("topMenu");
+const menuToggle = document.getElementById("menuToggle");
+const submenuItems = document.querySelectorAll(".has-submenu");
+
+menuToggle.addEventListener("click", () => {
+  topMenu.classList.toggle("menu-open");
+  menuToggle.textContent = topMenu.classList.contains("menu-open") ? "✕" : "☰";
+});
+
+submenuItems.forEach(item => {
+  const boton = item.querySelector(".submenu-btn");
+  boton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    submenuItems.forEach(otro => {
+      if(otro !== item) otro.classList.remove("active");
+    });
+    item.classList.toggle("active");
+  });
+});
+
+document.addEventListener("click", (e) => {
+  if(!e.target.closest(".top-menu")){
+    submenuItems.forEach(item => item.classList.remove("active"));
+    topMenu.classList.remove("menu-open");
+    menuToggle.textContent = "☰";
+  }
+});
+
+document.querySelectorAll(".top-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    topMenu.classList.remove("menu-open");
+    submenuItems.forEach(item => item.classList.remove("active"));
+    menuToggle.textContent = "☰";
+  });
+});
+</script>
+
+
+<script>
+document.querySelectorAll(".anio-btn").forEach(boton => {
+  boton.addEventListener("click", () => {
+    const anio = boton.dataset.anio;
+    const panel = document.getElementById("anio-" + anio);
+    const card = boton.closest(".anio-card");
+    const yaEstabaAbierto = panel.classList.contains("activo");
+
+    document.querySelectorAll(".horarios-desglose").forEach(p => p.classList.remove("activo"));
+    document.querySelectorAll(".anio-card").forEach(c => c.classList.remove("activo"));
+
+    if(!yaEstabaAbierto){
+      panel.classList.add("activo");
+      card.classList.add("activo");
+    }
+  });
+});
+</script>
+
+
+<script>
+/*
+==================================================
+TABLA DE POSICIONES - ESTUDIANTINA
+==================================================
+Publicá cada hoja de Google Sheets como CSV y pegá los enlaces acá.
+La tabla puede tener estas columnas:
+Posición | Medalla | Curso | Canto | Cultural 1 | Danza | Teatro | Cultural 2 | Kermese | Hacete Viral | Estudiantina | Fútbol | Handball | Vóley | Atletismo | Ajedrez | Truco | Total
+
+IMPORTANTE: si no tenés columna Total, el sistema suma automáticamente las columnas de puntos.
+*/
+
+const URL_POSICIONES_GRUPO_1 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT-yDuH9LMu3hrREx4Fcoiy4M41dfsWd78eJVNzw5xQTWcyG5-Z6kYvacWZONqDjnR7UFdV1Ac1Czxk/pub?gid=0&single=true&output=csv";
+const URL_POSICIONES_GRUPO_2 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT-yDuH9LMu3hrREx4Fcoiy4M41dfsWd78eJVNzw5xQTWcyG5-Z6kYvacWZONqDjnR7UFdV1Ac1Czxk/pub?gid=1204775349&single=true&output=csv";
+const URL_POSICIONES_GRUPO_3 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT-yDuH9LMu3hrREx4Fcoiy4M41dfsWd78eJVNzw5xQTWcyG5-Z6kYvacWZONqDjnR7UFdV1Ac1Czxk/pub?gid=779316746&single=true&output=csv";
+
+function medallaPorPosicion(pos){
+  if(pos === 1) return "🥇";
+  if(pos === 2) return "🥈";
+  if(pos === 3) return "🥉";
+  return "";
+}
+
+function clasePodio(pos){
+  if(pos === 1) return "oro";
+  if(pos === 2) return "plata";
+  if(pos === 3) return "bronce";
+  return "";
+}
+
+function numero(valor){
+  const n = Number(String(valor || "").replace(",", "."));
+  return isNaN(n) ? 0 : n;
+}
+
+async function cargarRankingGrupo(url, contenedorId){
+  const contenedor = document.getElementById(contenedorId);
+
+  if(!urlValida(url)){
+    contenedor.innerHTML = `
+      <div class="mensaje-posiciones">
+        Falta pegar el link CSV de este grupo en el código.
+      </div>
+    `;
+    return;
+  }
+
+  try{
+    const filas = await cargarCSVSimple(url);
+
+    if(filas.length <= 1){
+      contenedor.innerHTML = `<div class="mensaje-posiciones">Todavía no hay puntajes cargados.</div>`;
+      return;
+    }
+
+    const encabezados = filas[0].map(h => h.trim());
+    const idxCurso = encabezados.indexOf("Curso");
+    const idxTotal = encabezados.indexOf("Total");
+
+    if(idxCurso === -1){
+      contenedor.innerHTML = `<div class="mensaje-posiciones">La hoja necesita una columna llamada Curso.</div>`;
+      return;
+    }
+
+    const datos = filas.slice(1).map(fila => {
+      const curso = fila[idxCurso] || "";
+      let total = 0;
+
+      if(idxTotal !== -1){
+        total = numero(fila[idxTotal]);
+      }else{
+        total = fila.reduce((suma, celda, i) => {
+          if(i === idxCurso) return suma;
+          return suma + numero(celda);
+        }, 0);
+      }
+
+      return { curso, total };
+    }).filter(item => item.curso);
+
+    datos.sort((a,b) => b.total - a.total);
+
+    let podioHTML = `<div class="podio">`;
+    datos.slice(0,3).forEach((item, index) => {
+      const pos = index + 1;
+      podioHTML += `
+        <div class="podio-card ${clasePodio(pos)}">
+          <div class="podio-medalla">${medallaPorPosicion(pos)}</div>
+          <div class="podio-curso">${item.curso}</div>
+          <div class="podio-puntos">${item.total} pts</div>
+        </div>
+      `;
+    });
+    podioHTML += `</div>`;
+
+    let tablaHTML = `
+      <table class="tabla-ranking">
+        <thead>
+          <tr>
+            <th>Pos.</th>
+            <th>Medalla</th>
+            <th>Curso</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+
+    datos.forEach((item, index) => {
+      const pos = index + 1;
+      tablaHTML += `
+        <tr>
+          <td>${pos}</td>
+          <td>${medallaPorPosicion(pos)}</td>
+          <td>${item.curso}</td>
+          <td>${item.total}</td>
+        </tr>
+      `;
+    });
+
+    tablaHTML += `</tbody></table>`;
+    contenedor.innerHTML = podioHTML + tablaHTML;
+
+  }catch(error){
+    contenedor.innerHTML = `<div class="mensaje-posiciones">No se pudo cargar la tabla. Revisá que el CSV sea público.</div>`;
+  }
+}
+
+cargarRankingGrupo(URL_POSICIONES_GRUPO_1, "ranking-grupo-1");
+cargarRankingGrupo(URL_POSICIONES_GRUPO_2, "ranking-grupo-2");
+cargarRankingGrupo(URL_POSICIONES_GRUPO_3, "ranking-grupo-3");
+</script>
+
+</body>
+</html>
+
